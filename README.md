@@ -24,7 +24,6 @@ DevBot is a personal Discord bot designed to manage my Discord server, but it ca
 - [Table of Contents](#table-of-contents)
 - [Installation \& Running](#installation--running)
 - [Features \& Commands](#features--commands)
-- [Made with ❤️ by W1L7dev 💻](#made-with-️-by-w1l7dev-)
 - [Contributing](#contributing)
 - [Contact](#contact)
 
@@ -35,7 +34,7 @@ To install and use the bot, you'll need the following tools:
 - [Python 3.11 or newer](https://www.python.org/downloads/)
 - [Git](https://git-scm.com/downloads)
 - [Java 16 or newer](https://www.java.com/en/download/)
-- [Pip](https://pip.pypa.io/en/stable/installation/)
+- [PIP](https://pip.pypa.io/en/stable/installation/)
 
 You'll also need to install [Lavalink](https://github.com/freyacodes/Lavalink), but it is included in the repository.
 
@@ -184,7 +183,7 @@ DevBot has a variety of features, including moderation, fun, and utility command
 | 78  | `ticket`          | Creates a ticket message.                       | `/ticket <message id>`                                            | Utils          |
 | 79  | `math`            | Evaluates a mathematical expression.            | `/math <expression>`                                              | Math           |
 
-## Made with ❤️ by W1L7dev 💻
+Made with ❤️ by W1L7dev 💻
 
 ## Contributing
 

@@ -51,7 +51,7 @@ nav .icon {
 }
 
 header {
-  background-image: url("../assets/background.svg");
+  background-image: url("background.svg");
   background-size: cover;
   background-position: center;
   height: 100vh;

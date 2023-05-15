@@ -7,7 +7,7 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/Version-v3.7.1-green)
+![Version](https://img.shields.io/badge/Version-v4.0-green)
 ![License](https://img.shields.io/badge/License-MIT-red)
 [![Lines](https://tokei.rs/b1/github/W1L7dev/Devbot)](https://img.shields.io/tokei/lines/github/W1L7dev/Devbot)
 ![Python](https://img.shields.io/badge/Python-3.11.2-orange)
@@ -18,6 +18,8 @@
 ---
 
 DevBot is a personal Discord bot designed to manage my Discord server, but it can be used for any server. It has a variety of features, including moderation, fun, and utility commands. It also has a leveling system, which allows users to gain experience and level up. The bot is written in Python using the nextcord library. It is currently in development, and new features are being added regularly. If you have any suggestions, feel free to open an issue or pull request.
+
+### NEW WEBSITE: [https://w1l7dev.github.io/Devbot/](https://w1l7dev.github.io/Devbot/)
 
 ## Table of Contents
 
@@ -171,8 +173,8 @@ DevBot has a variety of features, including moderation, fun, and utility command
 | 66  | `connect`         | Joins a voice channel.                          | `/connect`                                                        | Music          |
 | 67  | `disconnect`      | Disconnects from a voice channel.               | `/disconnect`                                                     | Music          |
 | 68  | `lyrics`          | Displays the lyrics of a song.                  | `/lyrics <song>`                                                  | Music          |
-| 69  | `poll`            | Creates a poll.                                 | `/poll <question> <choice1,choice2...>`                           | Poll           |
-| 70  | `pollresults`     | Displays the results of a poll.                 | `/pollresults <message id>`                                       | Poll           |
+| 69  | `poll`            | Creates a poll.                                 | `/poll <question> <choice1,choice2...>`                           | Utils          |
+| 70  | `pollresults`     | Displays the results of a poll.                 | `/pollresults <message id>`                                       | Utils          |
 | 71  | `ping`            | Displays the bot's ping.                        | `/ping`                                                           | Utils          |
 | 72  | `say`             | Makes the bot say something.                    | `/say <message>`                                                  | Utils          |
 | 73  | `embed`           | Makes the bot send an embed.                    | `/embed <title> <description>`                                    | Utils          |
@@ -181,7 +183,7 @@ DevBot has a variety of features, including moderation, fun, and utility command
 | 76  | `avatar`          | Displays a user's avatar.                       | `/avatar <user>`                                                  | Utils          |
 | 77  | `giveaway`        | Creates a giveaway.                             | `/giveaway <time> <winners> <prize>`                              | Utils          |
 | 78  | `ticket`          | Creates a ticket message.                       | `/ticket <message id>`                                            | Utils          |
-| 79  | `math`            | Evaluates a mathematical expression.            | `/math <expression>`                                              | Math           |
+| 79  | `math`            | Evaluates a mathematical expression.            | `/math <expression>`                                              | Utils          |
 
 Made with ❤️ by W1L7dev 💻
 

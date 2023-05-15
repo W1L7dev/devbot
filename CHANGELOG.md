@@ -4,6 +4,13 @@
 
 # Changelog
 
+## [v4.1] - 2023-15-05
+### Added
+- [Website](https://w1l7dev.github.io/Devbot/)
+
+### Changed
+- `README.md` (added website link and changed some command categories)
+
 ## [v4.0] - 2023-14-05
 - New GitHub repository due to bugs 🐛
 

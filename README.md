@@ -9,7 +9,7 @@
 
 ![Version](https://img.shields.io/badge/Version-v3.7.1-green)
 ![License](https://img.shields.io/badge/License-MIT-red)
-[![Lines](https://tokei.rs/b1/github/W1L7dev/Devbot)](https://img.shields.io/tokei/lines/github/W1L7dev/Devbot?style=for-the-badge)
+[![Lines](https://tokei.rs/b1/github/W1L7dev/Devbot)](https://img.shields.io/tokei/lines/github/W1L7dev/Devbot)
 ![Python](https://img.shields.io/badge/Python-3.11.2-orange)
 ![GitHub last commit](https://img.shields.io/github/last-commit/W1L7dev/Devbot?color=blueviolet)
 

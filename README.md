@@ -7,7 +7,7 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/Version-v3.7.1-green)
+![Version](https://img.shields.io/badge/Version-v4.0-green)
 ![License](https://img.shields.io/badge/License-MIT-red)
 [![Lines](https://tokei.rs/b1/github/W1L7dev/Devbot)](https://img.shields.io/tokei/lines/github/W1L7dev/Devbot)
 ![Python](https://img.shields.io/badge/Python-3.11.2-orange)

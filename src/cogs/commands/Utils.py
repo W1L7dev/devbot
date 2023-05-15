@@ -5,6 +5,7 @@ from nextcord import (Color, Embed, Interaction, Member, SlashOption,
                       slash_command)
 from nextcord.ext import application_checks, commands
 
+from tasks.Math import solve_expr
 
 class Utils(commands.Cog):
     """Utility commands
@@ -204,6 +205,19 @@ class Utils(commands.Cog):
         else:
             await inter.channel.send(f"Nobody won **{prize}**!")
 
+    @slash_command(name="math", description="Do some math")
+    async def math(
+        self,
+        inter: Interaction,
+        expression: str = SlashOption(
+            name="expression", description="The expression to evaluate"
+        ),
+    ):
+        await self.bot.standard_response(
+            inter,
+            title="Math",
+            description=f"**{expression}** = **{solve_expr(expression)}**",
+        )
 
 def setup(bot):
     bot.add_cog(Utils(bot))

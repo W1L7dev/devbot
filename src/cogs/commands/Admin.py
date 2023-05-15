@@ -1,15 +1,6 @@
-from nextcord import (
-    CategoryChannel,
-    ChannelType,
-    Color,
-    Interaction,
-    Member,
-    Role,
-    SlashOption,
-    TextChannel,
-    VoiceChannel,
-    slash_command,
-)
+from nextcord import (CategoryChannel, ChannelType, Color, Interaction, Member,
+                      Role, SlashOption, TextChannel, VoiceChannel,
+                      slash_command)
 from nextcord.abc import GuildChannel
 from nextcord.ext import application_checks, commands
 

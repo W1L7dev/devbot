@@ -2,9 +2,17 @@ import datetime
 import os
 import time
 
+from logmaster import Logger
 import logmaster.errors
-from nextcord import (Activity, ActivityType, Game, Interaction, SlashOption,
-                      Status, slash_command)
+from nextcord import (
+    Activity,
+    ActivityType,
+    Game,
+    Interaction,
+    SlashOption,
+    Status,
+    slash_command,
+)
 from nextcord.ext import application_checks, commands
 
 from tasks.Clear import cls
@@ -467,7 +475,7 @@ class Dev(commands.Cog):
         type: str = SlashOption(
             name="type",
             description="The type of log",
-            choices=["debug", "info", "warning", "error", "critical"],
+            choices=Logger().levels,
         ),
         message: str = SlashOption(name="message", description="The message to log"),
     ):

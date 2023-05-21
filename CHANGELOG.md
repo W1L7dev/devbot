@@ -7,6 +7,7 @@
 ## [v4.1] - 2023-15-05
 ### Added
 - [Website](https://w1l7dev.github.io/Devbot/)
+- Formatting guidelines
 
 ### Changed
 - `README.md` (added website link and changed some command categories)

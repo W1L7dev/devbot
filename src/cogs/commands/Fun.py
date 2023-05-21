@@ -3,8 +3,8 @@ import random
 from nextcord import Interaction, SlashOption, slash_command
 from nextcord.ext import commands
 
-from tasks.MorseCode import encrypt
-from tasks.Zalgo import zalgo
+from tasks.morse_code import encrypt
+from tasks.zalgo import zalgo
 
 
 class Fun(commands.Cog):
@@ -22,7 +22,7 @@ class Fun(commands.Cog):
         reverse: Reverse text
         morse: Morse code text
     """
-    
+
     def __init__(self, bot):
         self.bot = bot
         self.responses = [

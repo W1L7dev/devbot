@@ -15,8 +15,8 @@ from nextcord import (
 )
 from nextcord.ext import application_checks, commands
 
-from tasks.Clear import cls
-from tasks.Restart import restart
+from tasks.clear import cls
+from tasks.restart import restart
 
 
 class Dev(commands.Cog):

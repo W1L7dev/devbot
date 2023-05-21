@@ -5,7 +5,7 @@ from nextcord import (Color, Embed, Interaction, Member, Message, SlashOption,
                       slash_command)
 from nextcord.ext import application_checks, commands
 
-from tasks.Math import solve_expr
+from tasks.math import solve_expr
 
 
 class Utils(commands.Cog):

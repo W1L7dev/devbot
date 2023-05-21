@@ -6,6 +6,14 @@
 
 Thank you for considering contributing to our project! We welcome all contributions, big or small.
 
+## Table of Contents
+
+- [Contributors](#contributors)
+  - [Table of Contents](#table-of-contents)
+  - [Contributors](#contributors-1)
+  - [How to Contribute](#how-to-contribute)
+  - [License](#license)
+
 ## Contributors
 
 - [W1L7](https://github.com/W1L7dev)

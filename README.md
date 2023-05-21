@@ -7,9 +7,8 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/Version-v4.0-green)
+![Version](https://img.shields.io/badge/Version-v4.1-green)
 ![License](https://img.shields.io/badge/License-MIT-red)
-[![Lines](https://tokei.rs/b1/github/W1L7dev/Devbot)](https://img.shields.io/tokei/lines/github/W1L7dev/Devbot)
 ![Python](https://img.shields.io/badge/Python-3.11.2-orange)
 ![GitHub last commit](https://img.shields.io/github/last-commit/W1L7dev/Devbot?color=blueviolet)
 
@@ -19,7 +18,7 @@
 
 DevBot is a personal Discord bot designed to manage my Discord server, but it can be used for any server. It has a variety of features, including moderation, fun, and utility commands. It also has a leveling system, which allows users to gain experience and level up. The bot is written in Python using the nextcord library. It is currently in development, and new features are being added regularly. If you have any suggestions, feel free to open an issue or pull request.
 
-### NEW WEBSITE: [https://w1l7dev.github.io/Devbot/](https://w1l7dev.github.io/Devbot/)
+### NEW WEBSITE: [https://w1l7dev.github.io/devbot/](https://w1l7dev.github.io/Devbot/)
 
 ## Table of Contents
 
@@ -97,7 +96,7 @@ py main.py
 ```
 
 > **Note**
-> You can use `python`, `py3` or similar instead of `py` if it doesn't work
+> You can use `python`, `py3` or similar commands instead of `py` if it doesn't work
 
 ---
 
@@ -185,14 +184,12 @@ DevBot has a variety of features, including moderation, fun, and utility command
 | 78  | `ticket`          | Creates a ticket message.                       | `/ticket <message id>`                                            | Utils          |
 | 79  | `math`            | Evaluates a mathematical expression.            | `/math <expression>`                                              | Utils          |
 
-Made with ❤️ by W1L7dev 💻
 
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. More informations in [CONTRIBUTING.md](CONTRIBUTING.md)
 
 Code of Conduct in [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-
 Contributors in [CONTRIBUTORS.md](CONTRIBUTORS.md)
 
 ---

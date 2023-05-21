@@ -23,16 +23,7 @@ Please follow these guidelines when contributing to this project:
 - Make sure your changes are well-tested and don't break existing functionality.
 - Keep your code clean, readable, and well-documented
 - Use consistent naming conventions and formatting.
-- Follow the existing coding style and best practices in the project.
 - Write clear and concise commit messages that explain the purpose of your changes.
-- Reporting Bugs and Issues
-
-Additionally, please:
-
-- Format your code with the `Black` formatter.
-- Use docstrings for all functions.
-- Sort imports with `Isort`.
-- Use `Google` docstring style.
 
 If you find any bugs or issues with DevBot, please open a new issue on the GitHub repository. Please include as much detail as possible, including steps to reproduce the issue and any error messages you received.
 

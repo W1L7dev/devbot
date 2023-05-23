@@ -80,196 +80,186 @@
         <h3>And commands include:</h3>
         <table>
           <tr>
-            <td>#</td>
             <td>Command Name</td>
             <td>Description</td>
             <td>Usage</td>
             <td>Category</td>
           </tr>
           <tr>
-            <td>1</td>
             <td><code>category create</code></td>
             <td>Creates a new category with the specified name.</td>
             <td><code>/category create &lt;name&gt;</code></td>
             <td>Administration</td>
           </tr>
           <tr>
-            <td>2</td>
             <td><code>category delete</code></td>
             <td>Deletes the specified category.</td>
             <td><code>/category delete &lt;name&gt;</code></td>
             <td>Administration</td>
           </tr>
           <tr>
-            <td>3</td>
             <td><code>category move</code></td>
             <td>Moves a channel to a specified category</td>
             <td><code>/category move &lt;channel&gt;</code></td>
             <td>Administration</td>
           </tr>
           <tr>
-            <td>4</td>
             <td><code>channel create</code></td>
             <td>Creates a new channel with the specified name.</td>
             <td><code>/channel create &lt;name&gt;</code></td>
             <td>Administration</td>
           </tr>
           <tr>
-            <td>5</td>
             <td><code>channel delete</code></td>
             <td>Deletes the specified channel.</td>
             <td><code>/channel delete &lt;name&gt;</code></td>
             <td>Administration</td>
           </tr>
           <tr>
-            <td>6</td>
             <td><code>role add</code></td>
             <td>Adds a role to the specified user.</td>
             <td><code>/role add &lt;user&gt; &lt;role&gt;</code></td>
             <td>Administration</td>
           </tr>
           <tr>
-            <td>7</td>
             <td><code>role create</code></td>
             <td>Creates a new role with the specified name.</td>
             <td><code>/role create &lt;name&gt;</code></td>
             <td>Administration</td>
           </tr>
           <tr>
-            <td>8</td>
             <td><code>role delete</code></td>
             <td>Deletes the specified role.</td>
             <td><code>/role delete &lt;name&gt;</code></td>
             <td>Administration</td>
           </tr>
           <tr>
-            <td>9</td>
             <td><code>role remove</code></td>
             <td>Removes a role from the specified user.</td>
             <td><code>/role remove &lt;user&gt; &lt;role&gt;</code></td>
             <td>Administration</td>
           </tr>
           <tr>
-            <td>10</td>
             <td><code>role rename</code></td>
             <td>Renames the specified role.</td>
             <td><code>/role rename &lt;name&gt;</code></td>
             <td>Administration</td>
           </tr>
           <tr>
-            <td>11</td>
             <td><code>uptime</code></td>
             <td>Displays the bot&#39;s uptime.</td>
             <td><code>/uptime</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>12</td>
             <td><code>cls</code></td>
             <td>Clears the terminal output.</td>
             <td><code>/cls</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>13</td>
             <td><code>print</code></td>
             <td>Prints a message to the terminal.</td>
             <td><code>/print &lt;message&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>14</td>
             <td><code>restart</code></td>
             <td>Restarts the bot.</td>
             <td><code>/restart</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>15</td>
             <td><code>shutdown</code></td>
             <td>Shuts down the bot.</td>
             <td><code>/shutdown</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>16</td>
-            <td><code>cog</code></td>
-            <td>Loads, unloads, or reloads a cog.</td>
-            <td><code>/cog &lt;load|unload|reload&gt; &lt;name&gt; &lt;type&gt;</code></td>
+            <td><code>cog load</code></td>
+            <td>Loads a cog.</td>
+            <td><code>/cog load &lt;cog&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>17</td>
+            <td><code>cog unload</code></td>
+            <td>Unloads a cog.</td>
+            <td><code>/cog unload &lt;cog&gt;</code></td>
+            <td>Development</td>
+          </tr>
+          <tr>
+            <td><code>cog reload</code></td>
+            <td>Reloads a cog.</td>
+            <td><code>/cog reload &lt;cog&gt;</code></td>
+            <td>Development</td>
+          </tr>
+          <tr>
+            <td><code>cog create</code></td>
+            <td>Creates a cog.</td>
+            <td><code>/cog create &lt;name&gt;</code></td>
+            <td>Development</td>
+          </tr>
+          <tr>
             <td><code>activity</code></td>
             <td>Sets the bot&#39;s activity.</td>
             <td><code>/activity &lt;name&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>18</td>
             <td><code>status</code></td>
             <td>Sets the bot&#39;s status.</td>
             <td><code>/status &lt;online|idle|dnd|invisible&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>19</td>
             <td><code>file read</code></td>
             <td>Reads a file.</td>
             <td><code>/file read &lt;path&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>20</td>
             <td><code>file create</code></td>
             <td>Creates a file.</td>
             <td><code>/file create &lt;path&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>21</td>
             <td><code>file write</code></td>
             <td>Writes to a file.</td>
             <td><code>/file write &lt;path&gt; &lt;message&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>22</td>
             <td><code>file delete</code></td>
             <td>Deletes a file.</td>
             <td><code>/file delete &lt;path&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>23</td>
             <td><code>folder create</code></td>
             <td>Creates a folder.</td>
             <td><code>/folder create &lt;path&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>24</td>
             <td><code>folder delete</code></td>
             <td>Deletes a folder.</td>
             <td><code>/folder delete &lt;path&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>25</td>
             <td><code>folder list</code></td>
             <td>Lists the contents of a folder.</td>
             <td><code>/folder list &lt;path&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>26</td>
             <td><code>eval</code></td>
             <td>Evaluates Python code.</td>
             <td><code>/eval &lt;expression&gt;</code></td>
             <td>Development</td>
           </tr>
           <tr>
-            <td>27</td>
             <td><code>log</code></td>
             <td>Logs a message to the terminal.</td>
             <td>
@@ -279,353 +269,309 @@
             <td>Development</td>
           </tr>
           <tr>
-            <td>28</td>
             <td><code>8ball</code></td>
             <td>Asks the magic 8ball a question.</td>
             <td><code>/8ball &lt;question&gt;</code></td>
             <td>Fun</td>
           </tr>
           <tr>
-            <td>29</td>
             <td><code>coinflip</code></td>
             <td>Flips a coin.</td>
             <td><code>/coinflip</code></td>
             <td>Fun</td>
           </tr>
           <tr>
-            <td>30</td>
             <td><code>dice</code></td>
             <td>Rolls a dice.</td>
             <td><code>/dice</code></td>
             <td>Fun</td>
           </tr>
           <tr>
-            <td>31</td>
             <td><code>rps</code></td>
             <td>Plays rock, paper, scissors.</td>
             <td><code>/rps &lt;rock|paper|scissors&gt;</code></td>
             <td>Fun</td>
           </tr>
           <tr>
-            <td>32</td>
             <td><code>choose</code></td>
             <td>Chooses between multiple options.</td>
             <td><code>/choose &lt;option1,option2...&gt;</code></td>
             <td>Fun</td>
           </tr>
           <tr>
-            <td>33</td>
             <td><code>slots</code></td>
             <td>Plays the slots.</td>
             <td><code>/slots</code></td>
             <td>Fun</td>
           </tr>
           <tr>
-            <td>34</td>
             <td><code>ruin</code></td>
             <td>Ruins text.</td>
             <td><code>/ruin &lt;text&gt;</code></td>
             <td>Fun</td>
           </tr>
           <tr>
-            <td>35</td>
             <td><code>morse</code></td>
             <td>Converts text to morse code.</td>
             <td><code>/morse &lt;text&gt;</code></td>
             <td>Fun</td>
           </tr>
           <tr>
-            <td>36</td>
             <td><code>reverse</code></td>
             <td>Reverses text.</td>
             <td><code>/reverse &lt;text&gt;</code></td>
             <td>Fun</td>
           </tr>
           <tr>
-            <td>37</td>
             <td><code>rules</code></td>
             <td>Displays the server rules.</td>
             <td><code>/rules</code></td>
             <td>Informations</td>
           </tr>
           <tr>
-            <td>38</td>
             <td><code>userinfo</code></td>
             <td>Displays information about a user.</td>
             <td><code>/userinfo &lt;user&gt;</code></td>
             <td>Informations</td>
           </tr>
           <tr>
-            <td>39</td>
             <td><code>serverinfo</code></td>
             <td>Displays information about the server.</td>
             <td><code>/serverinfo</code></td>
             <td>Informations</td>
           </tr>
           <tr>
-            <td>40</td>
             <td><code>roleinfo</code></td>
             <td>Displays information about a role.</td>
             <td><code>/roleinfo &lt;role&gt;</code></td>
             <td>Informations</td>
           </tr>
           <tr>
-            <td>41</td>
             <td><code>channelinfo</code></td>
             <td>Displays information about a channel.</td>
             <td><code>/channelinfo &lt;channel&gt;</code></td>
             <td>Informations</td>
           </tr>
           <tr>
-            <td>42</td>
             <td><code>rank</code></td>
             <td>Displays your rank.</td>
             <td><code>/rank &lt;member&gt;</code></td>
             <td>Levelling</td>
           </tr>
           <tr>
-            <td>43</td>
             <td><code>leaderboard</code></td>
             <td>Displays the server leaderboard.</td>
             <td><code>/leaderboard</code></td>
             <td>Levelling</td>
           </tr>
           <tr>
-            <td>44</td>
             <td><code>reset</code></td>
             <td>Resets your rank.</td>
             <td><code>/reset</code></td>
             <td>Levelling</td>
           </tr>
           <tr>
-            <td>47</td>
             <td><code>raidmode</code></td>
             <td>Toggles raidmode.</td>
             <td><code>/raidmode &lt;True|False&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>48</td>
             <td><code>lock</code></td>
             <td>Locks a channel.</td>
             <td><code>/lock &lt;channel&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>49</td>
             <td><code>unlock</code></td>
             <td>Unlocks a channel.</td>
             <td><code>/unlock &lt;channel&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>50</td>
             <td><code>slowmode</code></td>
             <td>Sets the slowmode of a channel.</td>
             <td><code>/slowmode &lt;channel&gt; &lt;time&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>51</td>
             <td><code>ban</code></td>
             <td>Bans a user.</td>
             <td><code>/ban &lt;user&gt; &lt;reason&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>52</td>
             <td><code>unban</code></td>
             <td>Unbans a user.</td>
             <td><code>/unban &lt;user&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>53</td>
             <td><code>kick</code></td>
             <td>Kicks a user.</td>
             <td><code>/kick &lt;user&gt; &lt;reason&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>54</td>
             <td><code>clear</code></td>
             <td>Clears messages.</td>
             <td><code>/clear &lt;amount&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>55</td>
             <td><code>timeout</code></td>
             <td>Timeouts a user.</td>
             <td><code>/timeout &lt;user&gt; &lt;time&gt; &lt;reason&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>56</td>
             <td><code>warn</code></td>
             <td>Warns a user.</td>
             <td><code>/warn &lt;user&gt; &lt;reason&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>57</td>
             <td><code>warnings</code></td>
             <td>Displays a user&#39;s warnings.</td>
             <td><code>/warnings &lt;user&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>58</td>
             <td><code>clearwarns</code></td>
             <td>Clears a user&#39;s warnings.</td>
             <td><code>/clearwarns &lt;user&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>59</td>
             <td><code>removewarn</code></td>
             <td>Removes a warning from a user.</td>
             <td><code>/removewarn &lt;user&gt; &lt;id&gt;</code></td>
             <td>Moderation</td>
           </tr>
           <tr>
-            <td>60</td>
             <td><code>play</code></td>
             <td>Plays a song.</td>
             <td><code>/play &lt;song&gt;</code></td>
             <td>Music</td>
           </tr>
           <tr>
-            <td>61</td>
             <td><code>pause</code></td>
             <td>Pauses the music.</td>
             <td><code>/pause</code></td>
             <td>Music</td>
           </tr>
           <tr>
-            <td>62</td>
             <td><code>resume</code></td>
             <td>Resumes the music.</td>
             <td><code>/resume</code></td>
             <td>Music</td>
           </tr>
           <tr>
-            <td>63</td>
             <td><code>volume</code></td>
             <td>Changes the volume.</td>
             <td><code>/volume &lt;volume&gt;</code></td>
             <td>Music</td>
           </tr>
           <tr>
-            <td>64</td>
             <td><code>nowplaying</code></td>
             <td>Displays the current song.</td>
             <td><code>/nowplaying</code></td>
             <td>Music</td>
           </tr>
           <tr>
-            <td>65</td>
             <td><code>stop</code></td>
             <td>Stops the music.</td>
             <td><code>/stop</code></td>
             <td>Music</td>
           </tr>
           <tr>
-            <td>66</td>
             <td><code>connect</code></td>
             <td>Joins a voice channel.</td>
             <td><code>/connect</code></td>
             <td>Music</td>
           </tr>
           <tr>
-            <td>67</td>
             <td><code>disconnect</code></td>
             <td>Disconnects from a voice channel.</td>
             <td><code>/disconnect</code></td>
             <td>Music</td>
           </tr>
           <tr>
-            <td>68</td>
             <td><code>lyrics</code></td>
             <td>Displays the lyrics of a song.</td>
             <td><code>/lyrics &lt;song&gt;</code></td>
             <td>Music</td>
           </tr>
           <tr>
-            <td>69</td>
             <td><code>poll</code></td>
             <td>Creates a poll.</td>
             <td><code>/poll &lt;question&gt; &lt;choice1|choice2...&gt;</code></td>
             <td>Utils</td>
           </tr>
           <tr>
-            <td>70</td>
             <td><code>pollresults</code></td>
             <td>Displays the results of a poll.</td>
             <td><code>/pollresults &lt;message id&gt;</code></td>
             <td>Utils</td>
           </tr>
           <tr>
-            <td>71</td>
             <td><code>ping</code></td>
             <td>Displays the bot&#39;s ping.</td>
             <td><code>/ping</code></td>
             <td>Utils</td>
           </tr>
           <tr>
-            <td>72</td>
             <td><code>say</code></td>
             <td>Makes the bot say something.</td>
             <td><code>/say &lt;message&gt;</code></td>
             <td>Utils</td>
           </tr>
           <tr>
-            <td>73</td>
             <td><code>embed</code></td>
             <td>Makes the bot send an embed.</td>
             <td><code>/embed &lt;title&gt; &lt;description&gt;</code></td>
             <td>Utils</td>
           </tr>
           <tr>
-            <td>74</td>
             <td><code>nick</code></td>
             <td>Changes your nickname.</td>
             <td><code>/nick &lt;nickname&gt;</code></td>
             <td>Utils</td>
           </tr>
           <tr>
-            <td>75</td>
             <td><code>resetnick</code></td>
             <td>Resets your nickname.</td>
             <td><code>/resetnick</code></td>
             <td>Utils</td>
           </tr>
           <tr>
-            <td>76</td>
             <td><code>avatar</code></td>
             <td>Displays a user&#39;s avatar.</td>
             <td><code>/avatar &lt;user&gt;</code></td>
             <td>Utils</td>
           </tr>
           <tr>
-            <td>77</td>
             <td><code>giveaway</code></td>
             <td>Creates a giveaway.</td>
             <td><code>/giveaway &lt;time&gt; &lt;winners&gt; &lt;prize&gt;</code></td>
             <td>Utils</td>
           </tr>
           <tr>
-            <td>78</td>
             <td><code>ticket</code></td>
             <td>Creates a ticket message.</td>
             <td><code>/ticket &lt;message id&gt;</code></td>
             <td>Utils</td>
           </tr>
           <tr>
-            <td>79</td>
             <td><code>math</code></td>
             <td>Evaluates a mathematical expression.</td>
             <td><code>/math &lt;expression&gt;</code></td>
+            <td>Utils</td>
+          </tr>
+          <tr>
+            <td><code>img</code></td>
+            <td>Generate an image with AI.</td>
+            <td><code>/img &lt;text&gt;</code></td>
             <td>Utils</td>
           </tr>
         </table>

@@ -6,7 +6,8 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+html {
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -62,7 +63,6 @@ header {
   justify-content: center;
 }
 
-
 header img:hover {
   transform: scale(1.1);
   transition: 0.5s;
@@ -88,7 +88,7 @@ footer .links {
 
 footer .links a {
   margin: 0.45rem;
-  color:#333333
+  color: #333333;
 }
 
 footer .links a i {
@@ -260,7 +260,6 @@ a:hover {
   border: 2px solid white;
 }
 
-
 @media screen and (max-width: 600px) {
   nav a:not(:first-child) {
     display: none;
@@ -299,7 +298,6 @@ a:hover {
     width: 100%;
   }
 }
-
 
 @keyframes typing {
   from {

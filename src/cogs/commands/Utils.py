@@ -1,9 +1,14 @@
 import asyncio
+import base64
 import random
+import time
+from io import BytesIO
 
-from nextcord import (Color, Embed, Interaction, Member, Message, SlashOption,
-                      slash_command)
+import aiohttp
+from nextcord import (Color, Embed, File, Interaction, Member, Message,
+                      SlashOption, slash_command)
 from nextcord.ext import application_checks, commands
+from nextcord.interactions import Interaction
 
 from tasks.math import solve_expr
 
@@ -35,6 +40,42 @@ class Utils(commands.Cog):
             inter,
             title="Pong 🏓!",
             description=f"Latency: {round(self.bot.latency * 1000)}ms",
+        )
+
+    @slash_command(name="img", description="generate an image")
+    async def img(
+        self,
+        inter: Interaction,
+        prompt: str = SlashOption(
+            name="prompt",
+            description="The prompt to generate the image from",
+        ),
+    ):
+        """Generate an image
+
+        Args:
+          inter (Interaction): The interaction
+          prompt (str): The prompt to generate the image from. Defaults to SlashOption(name="prompt", description="The prompt to generate the image from").
+        """
+        ETA = int(time.time() + 60)
+        await self.bot.standard_response(
+            inter,
+            title="Generating image",
+            description=f"ETA: <t:{ETA}:R>",
+        )
+        async with aiohttp.request(
+            "POST", "https://backend.craiyon.com/generate", json={"prompt": prompt}
+        ) as resp:
+            data = await resp.json()
+        imgs = data["images"]
+        img = BytesIO(base64.decodebytes(imgs[0].encode("utf-8")))
+        await inter.send(
+            embed=Embed(
+                title="Generated image",
+                description=f"Prompt: {prompt}",
+                color=Color.blurple(),
+            ),
+            file=File(img, filename="generatedImage.png"),
         )
 
     @slash_command(name="say", description="Make the bot say something")
@@ -229,7 +270,7 @@ class Utils(commands.Cog):
             name="options", description="The options to choose from"
         ),
     ):
-        """ Create a poll with custom options
+        """Create a poll with custom options
 
         Args:
           inter (Interaction): The interaction
@@ -304,5 +345,7 @@ class Utils(commands.Cog):
                 name=f"{reaction.emoji}", value=f"{count}, {percentage}%", inline=True
             )
         await self.bot.standard_response(embed=embed)
+
+
 def setup(bot):
     bot.add_cog(Utils(bot))

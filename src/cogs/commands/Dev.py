@@ -2,17 +2,10 @@ import datetime
 import os
 import time
 
-from logmaster import Logger
 import logmaster.errors
-from nextcord import (
-    Activity,
-    ActivityType,
-    Game,
-    Interaction,
-    SlashOption,
-    Status,
-    slash_command,
-)
+from logmaster import Logger
+from nextcord import (Activity, ActivityType, Game, Interaction, SlashOption,
+                      Status, slash_command)
 from nextcord.ext import application_checks, commands
 
 from tasks.clear import cls
@@ -28,7 +21,11 @@ class Dev(commands.Cog):
         print: Prints something in the terminal
         restart: Restarts the bot
         shutdown: Shuts down the bot
-        cog: Cog management
+        cog:
+            load: Loads a cog
+            unload: Unloads a cog
+            reload: Reloads a cog
+            create: Creates a cog
         activity: Sets the bot's activity
         status: Sets the bot's status
         file: File commands
@@ -126,7 +123,7 @@ class Dev(commands.Cog):
         )
         await self.bot.close()
 
-    @slash_command(name="cog", description="Cog management")
+    """    @slash_command(name="cog", description="Cog management")
     @application_checks.has_guild_permissions(administrator=True)
     async def cog(
         self,
@@ -165,14 +162,6 @@ class Dev(commands.Cog):
             choices=["load", "unload", "reload"],
         ),
     ):
-        """Cog management
-
-        Args:
-          inter (Interaction): The interaction
-          cog (str): The cog to manage. Defaults to SlashOption(name="cog", description="The cog to manage", choices=["Dev", "Math", "Fun", "Infos", "Moderation", "Music", "Admin", "Utils", "Ticket", "RoleReact", "Poll", "Levelling", "OnBotMention", "OnCommandError", "OnReady", "OnMemberJoin", "OnMemberLeaving"]).
-          type (str): The type of cog. Defaults to SlashOption(name="type", description="The type of cog", choices=["events", "commands"]).
-          action (str): The action to perform. Defaults to SlashOption(name="action", description="The action to perform", choices=["load", "unload", "reload"]).
-        """
         if action == "load":
             title = "LoadCog"
             try:
@@ -194,7 +183,147 @@ class Dev(commands.Cog):
                 desc = f"Reloaded **{cog}**"
             except Exception as e:
                 desc = f"Failed to reload **{cog}** due to \n```{e}```"
-        await self.bot.standard_response(inter, title=title, description=desc)
+        await self.bot.standard_response(inter, title=title, description=desc)"""
+
+    @slash_command(name="cog")
+    @application_checks.has_guild_permissions(administrator=True)
+    async def cog(self, inter: Interaction):
+        pass
+
+    @cog.subcommand(name="load", description="Loads a cog")
+    @application_checks.has_guild_permissions(administrator=True)
+    async def load(
+        self,
+        inter: Interaction,
+        cog: str = SlashOption(
+            name="cog",
+            description="The cog to load",
+            choices=list(
+                os.listdir("src/cogs/commands") + os.listdir("src/cogs/events")
+            ),
+        ),
+    ):
+        """Loads a cog
+
+        Args:
+          inter (Interaction): The interaction
+          cog (str): The cog to load. Defaults to SlashOption(name="cog", description="The cog to load", choices=list(os.listdir("src/cogs/commands") + os.listdir("src/cogs/events"))).
+        """
+        try:
+            self.bot.load_extension(f"cogs.commands.{cog}")
+            desc = f"Loaded **{cog}**"
+        except Exception as e:
+            desc = f"Failed to load **{cog}** due to \n```{e}```"
+        await self.bot.standard_response(inter, title="Cog", description=desc)
+
+    @cog.subcommand(name="unload", description="Unloads a cog")
+    @application_checks.has_guild_permissions(administrator=True)
+    async def unload(
+        self,
+        inter: Interaction,
+        cog: str = SlashOption(
+            name="cog",
+            description="The cog to unload",
+            choices=list(
+                os.listdir("src/cogs/commands") + os.listdir("src/cogs/events")
+            ),
+        ),
+    ):
+        """Unloads a cog
+
+        Args:
+          inter (Interaction): The interaction
+          cog (str): The cog to unload. Defaults to SlashOption(name="cog", description="The cog to unload", choices=list(os.listdir("src/cogs/commands") + os.listdir("src/cogs/events"))).
+        """
+        try:
+            self.bot.unload_extension(f"cogs.commands.{cog}")
+            desc = f"Unloaded **{cog}**"
+        except Exception as e:
+            desc = f"Failed to unload **{cog}** due to \n```{e}```"
+        await self.bot.standard_response(inter, title="Cog", description=desc)
+
+    @cog.subcommand(name="reload", description="Reloads a cog")
+    @application_checks.has_guild_permissions(administrator=True)
+    async def reload(
+        self,
+        inter: Interaction,
+        cog: str = SlashOption(
+            name="cog",
+            description="The cog to reload",
+            choices=list(
+                os.listdir("src/cogs/commands") + os.listdir("src/cogs/events")
+            ),
+        ),
+    ):
+        """Reloads a cog
+
+        Args:
+          inter (Interaction): The interaction
+          cog (str): The cog to reload. Defaults to SlashOption(name="cog", description="The cog to reload", choices=list(os.listdir("src/cogs/commands") + os.listdir("src/cogs/events"))).
+        """
+        try:
+            self.bot.reload_extension(f"cogs.commands.{cog}")
+            desc = f"Reloaded **{cog}**"
+        except Exception as e:
+            desc = f"Failed to reload **{cog}** due to \n```{e}```"
+        await self.bot.standard_response(inter, title="Cog", description=desc)
+
+    @cog.subcommand(name="create", description="Creates a cog")
+    @application_checks.has_guild_permissions(administrator=True)
+    async def create(
+        self,
+        inter: Interaction,
+        name: str = SlashOption(
+            name="name", description="The name of the cog to create"
+        ),
+        type: str = SlashOption(
+            name="type",
+            description="The type of cog to create",
+            choices=["commands", "events"],
+        ),
+    ):
+        """Creates a cog
+
+        Args:
+          inter (Interaction): The interaction
+          name (str): The name of the cog to create. Defaults to SlashOption(name="name", description="The name of the cog to create").
+          type (str): The type of cog to create. Defaults to SlashOption(name="type", description="The type of cog to create", choices=["commands", "events"]).
+        """
+        if type == "commands":
+            path = f"src/cogs/commands/{name}.py"
+            cog = f"""
+                from nextcord.ext import commands
+
+                class {name}(commands.Cog):
+                    \"\"\"{name} commands\"\"\"
+
+                    def __init__(self, bot):
+                        self.bot = bot
+
+                def setup(bot):
+                    bot.add_cog({name}(bot))
+
+                """
+        elif type == "events":
+            path = f"src/cogs/events/{name}.py"
+            cog = f"""
+                from nextcord.ext import commands
+
+                class {name}(commands.Cog):
+                    \"\"\"{name} events\"\"\"
+
+                    def __init__(self, bot):
+                        self.bot = bot
+
+                def setup(bot):
+                    bot.add_cog({name}(bot))
+
+                """
+        with open(path, "w") as f:
+            f.write(cog)
+        await self.bot.standard_response(
+            inter, title="Cog", description=f"Created cog **{name}**"
+        )
 
     @slash_command(name="activity", description="Sets the bot's activity")
     @application_checks.has_guild_permissions(administrator=True)
@@ -508,3 +637,7 @@ class Dev(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Dev(bot))
+
+
+bot = ""
+print(Dev(bot).cogs)

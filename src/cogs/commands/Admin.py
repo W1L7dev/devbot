@@ -15,9 +15,9 @@ class Admin(commands.Cog):
             create: Create a role
             delete: Delete a role
         category:
-            create: Create a category
-            delete: Delete a category
-            move: Moves a channel to a category
+            create: Creates a new category with the specified name.
+            delete: Deletes the specified category.
+            move: Moves a channel to a specified category
         channel:
             create: Create a channel
             delete: Delete a channel
@@ -189,14 +189,14 @@ class Admin(commands.Cog):
     async def category(self, inter: Interaction):
         pass
 
-    @category.subcommand(name="create", description="Create a category")
+    @category.subcommand(name="create", description="Creates a new category with the specified name.")
     @application_checks.has_permissions(manage_channels=True)
     async def createcategory(
         self,
         inter: Interaction,
         name: str = SlashOption(name="name", description="The name of the category"),
     ):
-        """Create a category
+        """Creates a new category with the specified name.
 
         Args:
           inter (Interaction): The interaction
@@ -213,7 +213,7 @@ class Admin(commands.Cog):
             description=f"{inter.user.mention} created **{name}**",
         )
 
-    @category.subcommand(name="delete", description="Delete a category")
+    @category.subcommand(name="delete", description="Deletes the specified category.")
     @application_checks.has_permissions(manage_channels=True)
     async def delcategory(
         self,
@@ -222,7 +222,7 @@ class Admin(commands.Cog):
             name="category", description="The category to delete"
         ),
     ):
-        """Delete a category
+        """Deletes the specified category.
 
         Args:
           inter (Interaction): The interaction
@@ -239,7 +239,7 @@ class Admin(commands.Cog):
             description=f"{inter.user.mention} deleted **{category.name}**",
         )
 
-    @category.subcommand(name="move", description="Moves a channel to a category")
+    @category.subcommand(name="move", description="Moves a channel to a specified category")
     @application_checks.has_permissions(manage_channels=True)
     async def categorymove(
         self,
@@ -259,7 +259,7 @@ class Admin(commands.Cog):
             ],
         ),
     ):
-        """Moves a channel to a category
+        """Moves a channel to a specified category
 
         Args:
           inter (Interaction): The interaction

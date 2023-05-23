@@ -121,69 +121,72 @@ DevBot has a variety of features, including moderation, fun, and utility command
 | 13  | `print`           | Prints a message to the terminal.               | `/print <message>`                                                | Development    |
 | 14  | `restart`         | Restarts the bot.                               | `/restart`                                                        | Development    |
 | 15  | `shutdown`        | Shuts down the bot.                             | `/shutdown`                                                       | Development    |
-| 16  | `cog`             | Loads, unloads, or reloads a cog.               | `/cog <load,unload,reload> <name> <type>`                         | Development    |
-| 17  | `activity`        | Sets the bot's activity.                        | `/activity <name>`                                                | Development    |
-| 18  | `status`          | Sets the bot's status.                          | `/status <online,idle,dnd,invisible>`                             | Development    |
-| 19  | `file read`       | Reads a file.                                   | `/file read <path>`                                               | Development    |
-| 20  | `file create`     | Creates a file.                                 | `/file create <path>`                                             | Development    |
-| 21  | `file write`      | Writes to a file.                               | `/file write <path> <message>`                                    | Development    |
-| 22  | `file delete`     | Deletes a file.                                 | `/file delete <path>`                                             | Development    |
-| 23  | `folder create`   | Creates a folder.                               | `/folder create <path>`                                           | Development    |
-| 24  | `folder delete`   | Deletes a folder.                               | `/folder delete <path>`                                           | Development    |
-| 25  | `folder list`     | Lists the contents of a folder.                 | `/folder list <path>`                                             | Development    |
-| 26  | `eval`            | Evaluates Python code.                          | `/eval <expression>`                                              | Development    |
-| 27  | `log`             | Logs a message to the terminal.                 | `/log <debug,info,warning,error,critical,success,fail> <message>` | Development    |
-| 28  | `8ball`           | Asks the magic 8ball a question.                | `/8ball <question>`                                               | Fun            |
-| 29  | `coinflip`        | Flips a coin.                                   | `/coinflip`                                                       | Fun            |
-| 30  | `dice`            | Rolls a dice.                                   | `/dice`                                                           | Fun            |
-| 31  | `rps`             | Plays rock, paper, scissors.                    | `/rps <rock,paper,scissors>`                                      | Fun            |
-| 32  | `choose`          | Chooses between multiple options.               | `/choose <option1,option2...>`                                    | Fun            |
-| 33  | `slots`           | Plays the slots.                                | `/slots`                                                          | Fun            |
-| 34  | `ruin`            | Ruins text.                                     | `/ruin <text>`                                                    | Fun            |
-| 35  | `morse`           | Converts text to morse code.                    | `/morse <text>`                                                   | Fun            |
-| 36  | `reverse`         | Reverses text.                                  | `/reverse <text>`                                                 | Fun            |
-| 37  | `rules`           | Displays the server rules.                      | `/rules`                                                          | Informations   |
-| 38  | `userinfo`        | Displays information about a user.              | `/userinfo <user>`                                                | Informations   |
-| 39  | `serverinfo`      | Displays information about the server.          | `/serverinfo`                                                     | Informations   |
-| 40  | `roleinfo`        | Displays information about a role.              | `/roleinfo <role>`                                                | Informations   |
-| 41  | `channelinfo`     | Displays information about a channel.           | `/channelinfo <channel>`                                          | Informations   |
-| 42  | `rank`            | Displays your rank.                             | `/rank <member>`                                                  | Levelling      |
-| 43  | `leaderboard`     | Displays the server leaderboard.                | `/leaderboard`                                                    | Levelling      |
-| 44  | `reset`           | Resets your rank.                               | `/reset`                                                          | Levelling      |
-| 47  | `raidmode`        | Toggles raidmode.                               | `/raidmode <True,False>`                                          | Moderation     |
-| 48  | `lock`            | Locks a channel.                                | `/lock <channel>`                                                 | Moderation     |
-| 49  | `unlock`          | Unlocks a channel.                              | `/unlock <channel>`                                               | Moderation     |
-| 50  | `slowmode`        | Sets the slowmode of a channel.                 | `/slowmode <channel> <time>`                                      | Moderation     |
-| 51  | `ban`             | Bans a user.                                    | `/ban <user> <reason>`                                            | Moderation     |
-| 52  | `unban`           | Unbans a user.                                  | `/unban <user>`                                                   | Moderation     |
-| 53  | `kick`            | Kicks a user.                                   | `/kick <user> <reason>`                                           | Moderation     |
-| 54  | `clear`           | Clears messages.                                | `/clear <amount>`                                                 | Moderation     |
-| 55  | `timeout`         | Timeouts a user.                                | `/timeout <user> <time> <reason>`                                 | Moderation     |
-| 56  | `warn`            | Warns a user.                                   | `/warn <user> <reason>`                                           | Moderation     |
-| 57  | `warnings`        | Displays a user's warnings.                     | `/warnings <user>`                                                | Moderation     |
-| 58  | `clearwarns`      | Clears a user's warnings.                       | `/clearwarns <user>`                                              | Moderation     |
-| 59  | `removewarn`      | Removes a warning from a user.                  | `/removewarn <user> <id>`                                         | Moderation     |
-| 60  | `play`            | Plays a song.                                   | `/play <song>`                                                    | Music          |
-| 61  | `pause`           | Pauses the music.                               | `/pause`                                                          | Music          |
-| 62  | `resume`          | Resumes the music.                              | `/resume`                                                         | Music          |
-| 63  | `volume`          | Changes the volume.                             | `/volume <volume>`                                                | Music          |
-| 64  | `nowplaying`      | Displays the current song.                      | `/nowplaying`                                                     | Music          |
-| 65  | `stop`            | Stops the music.                                | `/stop`                                                           | Music          |
-| 66  | `connect`         | Joins a voice channel.                          | `/connect`                                                        | Music          |
-| 67  | `disconnect`      | Disconnects from a voice channel.               | `/disconnect`                                                     | Music          |
-| 68  | `lyrics`          | Displays the lyrics of a song.                  | `/lyrics <song>`                                                  | Music          |
-| 69  | `poll`            | Creates a poll.                                 | `/poll <question> <choice1,choice2...>`                           | Utils          |
-| 70  | `pollresults`     | Displays the results of a poll.                 | `/pollresults <message id>`                                       | Utils          |
-| 71  | `ping`            | Displays the bot's ping.                        | `/ping`                                                           | Utils          |
-| 72  | `say`             | Makes the bot say something.                    | `/say <message>`                                                  | Utils          |
-| 73  | `embed`           | Makes the bot send an embed.                    | `/embed <title> <description>`                                    | Utils          |
-| 74  | `nick`            | Changes your nickname.                          | `/nick <nickname>`                                                | Utils          |
-| 75  | `resetnick`       | Resets your nickname.                           | `/resetnick`                                                      | Utils          |
-| 76  | `avatar`          | Displays a user's avatar.                       | `/avatar <user>`                                                  | Utils          |
-| 77  | `giveaway`        | Creates a giveaway.                             | `/giveaway <time> <winners> <prize>`                              | Utils          |
-| 78  | `ticket`          | Creates a ticket message.                       | `/ticket <message id>`                                            | Utils          |
-| 79  | `math`            | Evaluates a mathematical expression.            | `/math <expression>`                                              | Utils          |
-
+| 16  | `cog load`        | Loads a cog.                                    | `/cog load <cog>`                                                 | Development    |
+| 17  | `cog unload`      | Unloads a cog.                                  | `/cog unload <cog>`                                               | Development    |
+| 18  | `cog reload`      | Reloads a cog.                                  | `/cog reload <cog>`                                               | Development    |
+| 19  | `cog create`      | Creates a cog.                                  | `/cog create <name> <type>`                                       | Development    |
+| 20  | `activity`        | Sets the bot's activity.                        | `/activity <name>`                                                | Development    |
+| 21  | `status`          | Sets the bot's status.                          | `/status <online,idle,dnd,invisible>`                             | Development    |
+| 22  | `file read`       | Reads a file.                                   | `/file read <path>`                                               | Development    |
+| 23  | `file create`     | Creates a file.                                 | `/file create <path>`                                             | Development    |
+| 24  | `file write`      | Writes to a file.                               | `/file write <path> <message>`                                    | Development    |
+| 25  | `file delete`     | Deletes a file.                                 | `/file delete <path>`                                             | Development    |
+| 26  | `folder create`   | Creates a folder.                               | `/folder create <path>`                                           | Development    |
+| 27  | `folder delete`   | Deletes a folder.                               | `/folder delete <path>`                                           | Development    |
+| 28  | `folder list`     | Lists the contents of a folder.                 | `/folder list <path>`                                             | Development    |
+| 29  | `eval`            | Evaluates Python code.                          | `/eval <expression>`                                              | Development    |
+| 30  | `log`             | Logs a message to the terminal.                 | `/log <debug,info,warning,error,critical,success,fail> <message>` | Development    |
+| 31  | `8ball`           | Asks the magic 8ball a question.                | `/8ball <question>`                                               | Fun            |
+| 32  | `coinflip`        | Flips a coin.                                   | `/coinflip`                                                       | Fun            |
+| 33  | `dice`            | Rolls a dice.                                   | `/dice`                                                           | Fun            |
+| 34  | `rps`             | Plays rock, paper, scissors.                    | `/rps <rock,paper,scissors>`                                      | Fun            |
+| 35  | `choose`          | Chooses between multiple options.               | `/choose <option1,option2...>`                                    | Fun            |
+| 36  | `slots`           | Plays the slots.                                | `/slots`                                                          | Fun            |
+| 37  | `ruin`            | Ruins text.                                     | `/ruin <text>`                                                    | Fun            |
+| 38  | `morse`           | Converts text to morse code.                    | `/morse <text>`                                                   | Fun            |
+| 39  | `reverse`         | Reverses text.                                  | `/reverse <text>`                                                 | Fun            |
+| 40  | `rules`           | Displays the server rules.                      | `/rules`                                                          | Informations   |
+| 41  | `userinfo`        | Displays information about a user.              | `/userinfo <user>`                                                | Informations   |
+| 42  | `serverinfo`      | Displays information about the server.          | `/serverinfo`                                                     | Informations   |
+| 43  | `roleinfo`        | Displays information about a role.              | `/roleinfo <role>`                                                | Informations   |
+| 44  | `channelinfo`     | Displays information about a channel.           | `/channelinfo <channel>`                                          | Informations   |
+| 45  | `rank`            | Displays your rank.                             | `/rank <member>`                                                  | Levelling      |
+| 46  | `leaderboard`     | Displays the server leaderboard.                | `/leaderboard`                                                    | Levelling      |
+| 47  | `reset`           | Resets your rank.                               | `/reset`                                                          | Levelling      |
+| 48  | `raidmode`        | Toggles raidmode.                               | `/raidmode <True,False>`                                          | Moderation     |
+| 49  | `lock`            | Locks a channel.                                | `/lock <channel>`                                                 | Moderation     |
+| 50  | `unlock`          | Unlocks a channel.                              | `/unlock <channel>`                                               | Moderation     |
+| 51  | `slowmode`        | Sets the slowmode of a channel.                 | `/slowmode <channel> <time>`                                      | Moderation     |
+| 52  | `ban`             | Bans a user.                                    | `/ban <user> <reason>`                                            | Moderation     |
+| 53  | `unban`           | Unbans a user.                                  | `/unban <user>`                                                   | Moderation     |
+| 54  | `kick`            | Kicks a user.                                   | `/kick <user> <reason>`                                           | Moderation     |
+| 55  | `clear`           | Clears messages.                                | `/clear <amount>`                                                 | Moderation     |
+| 56  | `timeout`         | Timeouts a user.                                | `/timeout <user> <time> <reason>`                                 | Moderation     |
+| 57  | `warn`            | Warns a user.                                   | `/warn <user> <reason>`                                           | Moderation     |
+| 58  | `warnings`        | Displays a user's warnings.                     | `/warnings <user>`                                                | Moderation     |
+| 59  | `clearwarns`      | Clears a user's warnings.                       | `/clearwarns <user>`                                              | Moderation     |
+| 60  | `removewarn`      | Removes a warning from a user.                  | `/removewarn <user> <id>`                                         | Moderation     |
+| 61  | `play`            | Plays a song.                                   | `/play <song>`                                                    | Music          |
+| 62  | `pause`           | Pauses the music.                               | `/pause`                                                          | Music          |
+| 63  | `resume`          | Resumes the music.                              | `/resume`                                                         | Music          |
+| 64  | `volume`          | Changes the volume.                             | `/volume <volume>`                                                | Music          |
+| 65  | `nowplaying`      | Displays the current song.                      | `/nowplaying`                                                     | Music          |
+| 66  | `stop`            | Stops the music.                                | `/stop`                                                           | Music          |
+| 67  | `connect`         | Joins a voice channel.                          | `/connect`                                                        | Music          |
+| 68  | `disconnect`      | Disconnects from a voice channel.               | `/disconnect`                                                     | Music          |
+| 69  | `lyrics`          | Displays the lyrics of a song.                  | `/lyrics <song>`                                                  | Music          |
+| 70  | `poll`            | Creates a poll.                                 | `/poll <question> <choice1,choice2...>`                           | Utils          |
+| 71  | `pollresults`     | Displays the results of a poll.                 | `/pollresults <message id>`                                       | Utils          |
+| 72  | `ping`            | Displays the bot's ping.                        | `/ping`                                                           | Utils          |
+| 73  | `say`             | Makes the bot say something.                    | `/say <message>`                                                  | Utils          |
+| 74  | `embed`           | Makes the bot send an embed.                    | `/embed <title> <description>`                                    | Utils          |
+| 75  | `nick`            | Changes your nickname.                          | `/nick <nickname>`                                                | Utils          |
+| 76  | `resetnick`       | Resets your nickname.                           | `/resetnick`                                                      | Utils          |
+| 77  | `avatar`          | Displays a user's avatar.                       | `/avatar <user>`                                                  | Utils          |
+| 78  | `giveaway`        | Creates a giveaway.                             | `/giveaway <time> <winners> <prize>`                              | Utils          |
+| 79  | `ticket`          | Creates a ticket message.                       | `/ticket <message id>`                                            | Utils          |
+| 80  | `math`            | Evaluates a mathematical expression.            | `/math <expression>`                                              | Utils          |
+| 81  | `img`             | Generates an image with AI.                     | `/img <prompt></prompt>`                                                     | Utils          |
 
 ## Contributing
 

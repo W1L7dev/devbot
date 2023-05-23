@@ -7,6 +7,9 @@ A general purpose bot for discord made with nextcord.
 :copyright: (c) 2022-present W1L7dev
 :license: MIT, see LICENSE for more details.
 """
+
+from __future__ import annotations
+
 __title__ = "Devbot"
 __author__ = "W1L7dev"
 __license__ = "MIT"
@@ -46,4 +49,4 @@ if __name__ == "__main__":
     bot.logger = logger
     bot.config = config
     bot.env = env
-    bot.run(os.getenv("TOKEN"))
+    bot.run(bot.env.token)

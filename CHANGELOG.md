@@ -4,6 +4,14 @@
 
 # Changelog
 
+## [v4.2] - 2023-23-05
+### Added
+- `/img` command (Generate Image with AI)
+
+### Changed
+- `README.md` (added `/img` command)
+- Changed the cog-related commands
+
 ## [v4.1] - 2023-15-05
 ### Added
 - [Website](https://w1l7dev.github.io/Devbot/)

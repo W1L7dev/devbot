@@ -6,7 +6,8 @@ from io import BytesIO
 
 import aiohttp
 from nextcord import (Color, Embed, File, Interaction, Member, Message,
-                      SlashOption, slash_command)
+                      RawReactionActionEvent, SlashOption, slash_command,
+                      utils)
 from nextcord.ext import application_checks, commands
 from nextcord.interactions import Interaction
 
@@ -17,21 +18,75 @@ class Utils(commands.Cog):
     """Utility commands
 
     Commands:
-        ping: Get the bot's latency
-        say: Make the bot say something
-        embed: Make the bot send an embed
-        nick: Change your nickname
-        resetnick: Reset your nickname
-        avatar: Get a user's avatar
-        giveaway: Start a giveaway
+        ticket: Creates a ticket message.
+        ping: Displays the bot's ping.
+        say: Makes the bot say something.
+        embed: Makes the bot send an embed.
+        nick: Changes your nickname.
+        resetnick: Resets your nickname.
+        avatar: Displays a user's avatar.
+        giveaway: Creates a giveaway.
+        math: Evaluates a mathematical expression.
+        img: Generates an image with AI.
+        poll: Creates a poll.
+        pollresult: Displays the results of a poll.
     """
 
     def __init__(self, bot):
         self.bot = bot
 
-    @slash_command(name="ping", description="Get the bot's latency")
+    @slash_command(name="ticket", description="Creates a ticket message.")
+    @application_checks.has_guild_permissions(manage_channels=True)
+    async def ticket(self, inter: Interaction):
+        """Creates a ticket message.
+
+        Args:
+          inter (Interaction): The interaction
+        """
+        msg = await self.bot.standard_response(
+            inter,
+            title="Ticket",
+            description="React to this message to create a ticket",
+        )
+        f = await msg.fetch()
+        await f.add_reaction("🎟️")
+
+    @commands.Cog.listener()
+    async def on_raw_reaction_add(self, payload: RawReactionActionEvent):
+        """Create a ticket when a user reacts to a message
+
+        Args:
+          payload (RawReactionActionEvent): The reaction event
+        """
+        if payload.member.bot:
+            return
+        if payload.emoji.name == "🎟️":
+            guild = self.bot.get_guild(payload.guild_id)
+            channel = await guild.create_text_channel(
+                f"ticket-{payload.member.name}",
+                category=utils.get(
+                    guild.categories, name=self.bot.config.get("ticket_category")
+                ),
+            )
+            await channel.set_permissions(
+                payload.member, read_messages=True, send_messages=True
+            )
+            msg = await channel.send(
+                embed=Embed(
+                    title="Ticket",
+                    description=f"{payload.member.mention}'s ticket\nClick on ❌ to close the ticket",
+                )
+            )
+            f = await msg.fetch()
+            await f.add_reaction("❌")
+        elif payload.emoji.name == "❌":
+            channel = self.bot.get_channel(payload.channel_id)
+            if channel.name.startswith("ticket-"):
+                await channel.delete()
+
+    @slash_command(name="ping", description="Displays the bot's ping.")
     async def ping(self, inter: Interaction):
-        """Get the bot's latency
+        """Displays the bot's ping.
 
         Args:
           inter (Interaction): The interaction
@@ -42,7 +97,7 @@ class Utils(commands.Cog):
             description=f"Latency: {round(self.bot.latency * 1000)}ms",
         )
 
-    @slash_command(name="img", description="generate an image")
+    @slash_command(name="img", description="Generates an image with AI.")
     async def img(
         self,
         inter: Interaction,
@@ -51,7 +106,7 @@ class Utils(commands.Cog):
             description="The prompt to generate the image from",
         ),
     ):
-        """Generate an image
+        """Generates an image with AI.
 
         Args:
           inter (Interaction): The interaction
@@ -78,7 +133,7 @@ class Utils(commands.Cog):
             file=File(img, filename="generatedImage.png"),
         )
 
-    @slash_command(name="say", description="Make the bot say something")
+    @slash_command(name="say", description="Makes the bot say something.")
     async def say(
         self,
         inter: Interaction,
@@ -87,7 +142,7 @@ class Utils(commands.Cog):
             description="The message to send",
         ),
     ):
-        """Make the bot say something
+        """Makes the bot say something.
 
         Args:
           inter (Interaction): The interaction
@@ -95,7 +150,7 @@ class Utils(commands.Cog):
         """
         await inter.response.send_message(message)
 
-    @slash_command(name="embed", description="Make the bot send an embed")
+    @slash_command(name="embed", description="Makes the bot send an embed.")
     async def embed(
         self,
         inter: Interaction,
@@ -104,7 +159,7 @@ class Utils(commands.Cog):
             name="message", description="The message of the embed"
         ),
     ):
-        """Make the bot send an embed
+        """Makes the bot send an embed.
 
         Args:
           inter (Interaction): The interaction
@@ -114,7 +169,7 @@ class Utils(commands.Cog):
         """
         await self.bot.standard_response(inter, title=title, description=message)
 
-    @slash_command(name="nick", description="Change your nickname")
+    @slash_command(name="nick", description="Changes your nickname.")
     async def nick(
         self,
         inter: Interaction,
@@ -122,7 +177,7 @@ class Utils(commands.Cog):
             name="nickname", description="The nickname to change to"
         ),
     ):
-        """Change your nickname
+        """Changes your nickname.
 
         Args:
           inter (Interaction): The interaction
@@ -135,9 +190,9 @@ class Utils(commands.Cog):
             description=f"Changed nickname to **{nickname}**",
         )
 
-    @slash_command(name="resetnick", description="Reset your nickname")
+    @slash_command(name="resetnick", description="Resets your nickname.")
     async def resetnick(self, inter: Interaction):
-        """Reset your nickname
+        """Resets your nickname.
 
         Args:
           inter (Interaction): The interaction
@@ -147,7 +202,7 @@ class Utils(commands.Cog):
             inter, title="Nickname reset", description="Reset nickname"
         )
 
-    @slash_command(name="avatar", description="Get a user's avatar")
+    @slash_command(name="avatar", description="Displays a user's avatar.")
     async def avatar(
         self,
         inter: Interaction,
@@ -155,7 +210,7 @@ class Utils(commands.Cog):
             name="member", description="The member to get the avatar of", required=False
         ),
     ):
-        """Get a user's avatar
+        """Displays a user's avatar.
 
         Args:
           inter (Interaction): The interaction
@@ -167,7 +222,7 @@ class Utils(commands.Cog):
         embed.set_image(url=member.avatar.url)
         await inter.response.send_message(embed=embed)
 
-    @slash_command(name="giveaway", description="Start a giveaway")
+    @slash_command(name="giveaway", description="Creates a giveawa")
     @application_checks.has_guild_permissions(manage_messages=True)
     async def giveaway(
         self,
@@ -194,7 +249,7 @@ class Utils(commands.Cog):
             description="The number of winners",
         ),
     ):
-        """Start a giveaway
+        """Creates a giveaway.
 
         Args:
           inter (Interaction): The interaction
@@ -247,7 +302,7 @@ class Utils(commands.Cog):
         else:
             await inter.channel.send(f"Nobody won **{prize}**!")
 
-    @slash_command(name="math", description="Do some math")
+    @slash_command(name="math", description="Evaluates a mathematical expression.")
     async def math(
         self,
         inter: Interaction,
@@ -261,7 +316,7 @@ class Utils(commands.Cog):
             description=f"**{expression}** = **{solve_expr(expression)}**",
         )
 
-    @slash_command(name="poll", description="Create a poll with custom options")
+    @slash_command(name="poll", description="Creates a poll.")
     async def poll(
         self,
         inter: Interaction,
@@ -270,7 +325,7 @@ class Utils(commands.Cog):
             name="options", description="The options to choose from"
         ),
     ):
-        """Create a poll with custom options
+        """Creates a poll.
 
         Args:
           inter (Interaction): The interaction
@@ -315,7 +370,7 @@ class Utils(commands.Cog):
                     return
             await vote.add_reaction(reaction)
 
-    @slash_command(name="pollresult", description="Get the results of a poll")
+    @slash_command(name="pollresult", description="Displays the results of a poll.")
     async def pollresult(
         self,
         inter: Interaction,
@@ -323,7 +378,7 @@ class Utils(commands.Cog):
             name="message_id", description="The ID of the message to get the results of"
         ),
     ):
-        """Get the results of a poll
+        """Displays the results of a poll.
 
         Args:
           inter (Interaction): The interaction

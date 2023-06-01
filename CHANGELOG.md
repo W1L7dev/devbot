@@ -4,6 +4,19 @@
 
 # Changelog
 
+## [v4.3] - 2023-31-05
+### Added
+- `/request` command (send an http request to a website)
+- `/jsondiagram` command (generate a diagram from a json file/string)
+
+### Changed
+- `README.md` (added `/request` and `/jsondiagram` commands)
+- Migrated `config.json` to `config.cfg`
+- UPDATED EVERY COMMAND DESCRIPTIONS
+
+### Removed
+- Table of commands in `website -> index.html`
+
 ## [v4.2] - 2023-23-05
 ### Added
 - `/img` command (Generate Image with AI)

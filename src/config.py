@@ -9,7 +9,7 @@ class Config:
     def load(self):
         """Loads the config file into memory."""
         path = os.path.dirname(os.path.realpath(__file__)).replace("\\", "/")
-        with open(f"{path}/config.json", "r", encoding="utf-8") as f:
+        with open(f"{path}/config.cfg", "r", encoding="utf-8") as f:
             self.config = json.load(f)
 
     def get(self, key):

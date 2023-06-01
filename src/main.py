@@ -23,11 +23,9 @@ import nextcord
 
 from bot_base import Bot
 from config import Config
-from env import Environment
 
 intents = nextcord.Intents.all()
 config = Config()
-env = Environment()
 
 bot = Bot(intents=intents, default_guild_ids=config.get("guild_id"))
 bot.remove_command("help")
@@ -48,5 +46,4 @@ logger.log("info", "Cogs Loaded!")
 if __name__ == "__main__":
     bot.logger = logger
     bot.config = config
-    bot.env = env
-    bot.run(bot.env.token)
+    bot.run(bot.config.get("token"))

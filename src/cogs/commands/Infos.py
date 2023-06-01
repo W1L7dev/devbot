@@ -1,27 +1,28 @@
-import datetime
-
 from nextcord import (ChannelType, Color, Embed, Interaction, Member, Role,
                       SlashOption, slash_command)
 from nextcord.abc import GuildChannel
 from nextcord.ext import commands
+
+from typing import Optional
 
 
 class Infos(commands.Cog):
     """Information commands""
 
     Commands:
-        rules: Get the rules of the server
-        userinfo: Get the info of a user
-        serverinfo: Get the info of the server
-        roleinfo: Get the info of a role
-        channelinfo: Get the info of a channel
-        github: Get the github link of the bot
+        rules:	Displays the server rules.
+        userinfo: Displays information about a user.
+        serverinfo: Displays information about the server.
+        roleinfo: Displays information about a role.
+        channelinfo: Displays information about a channel.
+        github: Displays information about the bot's GitHub repository.
+        website: Displays information about the bot's website.
     """
     OSError
     def __init__(self, bot):
         self.bot = bot
 
-    @slash_command(name="rules", description="Get the rules of the server")
+    @slash_command(name="rules", description="Displays the server rules.")
     async def rules(self, inter: Interaction):
         rules_embed = Embed(
             title="Rules",
@@ -39,30 +40,33 @@ class Infos(commands.Cog):
         rules_embed.set_footer(
             text="These rules are subject to change\nLink to Discord TOS: https://discord.com/terms\nLink to Discord Community Guidelines: https://discord.com/guidelines"
         )
-        """Get the rules of the server
+        """Displays the server rules.
 
     Args:
       inter (Interaction): The interaction
     """
         await inter.response.send_message(embed=rules_embed)
 
-    @slash_command(name="userinfo", description="Get the info of a user")
+    @slash_command(name="userinfo", description="Displays information about a user.")
     async def userinfo(
         self,
         inter: Interaction,
-        member: Member = SlashOption(
+        member: Optional[Member] = SlashOption(
             name="member",
             description="The member you want to get the info of",
+            required=False,
         ),
     ):
-        """Get the info of a user
+        """Displays information about a user.
 
         Args:
           inter (Interaction): The interaction
           member (Member): The member you want to get the info of. Defaults to None.
         """
+        if member is None:
+            member = inter.user
         embed = Embed(
-            title=f"{member.mention}'s info",
+            title=f"{member}'s info",
             description=f"Here is the info of {member.name}",
             color=getattr(Color, self.bot.config.get("default_embed_color"))(),
         )
@@ -72,21 +76,21 @@ class Infos(commands.Cog):
         embed.add_field(name="Top Role", value=member.top_role, inline=False)
         embed.add_field(
             name="Joined At",
-            value=str(datetime.timedelta(member.joined_at)),
+            value=f"<t:{int(member.joined_at.timestamp())}:d>",
             inline=False,
         )
         embed.add_field(
             name="Created At",
-            value=str(datetime.timedelta(member.created_at)),
+            value=f"<t:{int(member.created_at.timestamp())}:d>",
             inline=False,
         )
         embed.add_field(name="Bot?", value=member.bot, inline=False)
         embed.set_thumbnail(url=member.avatar.url)
         await inter.response.send_message(embed=embed)
 
-    @slash_command(name="serverinfo", description="Get the info of the server")
+    @slash_command(name="serverinfo", description="Displays information about the server.")
     async def serverinfo(self, inter: Interaction):
-        """Get the info of the server
+        """Displays information about the server.
 
         Args:
           inter (Interaction): The interaction
@@ -101,7 +105,7 @@ class Infos(commands.Cog):
         embed.add_field(name="Owner", value=inter.guild.owner, inline=False)
         embed.add_field(
             name="Created At",
-            value=str(datetime.timedelta(inter.guild.created_at)),
+            value=f"<t:{int(inter.guild.created_at.timestamp())}:d>",
             inline=False,
         )
         embed.add_field(name="Members", value=inter.guild.member_count, inline=False)
@@ -118,7 +122,7 @@ class Infos(commands.Cog):
         embed.set_thumbnail(url=inter.guild.icon.url)
         await inter.response.send_message(embed=embed)
 
-    @slash_command(name="roleinfo", description="Get the info of a role")
+    @slash_command(name="roleinfo", description="	Displays information about a role.")
     async def roleinfo(
         self,
         inter: Interaction,
@@ -126,7 +130,7 @@ class Infos(commands.Cog):
             name="role", description="The role you want to get the info of"
         ),
     ):
-        """Get the info of a role
+        """	Displays information about a role.
 
         Args:
           inter (Interaction): The interaction
@@ -143,7 +147,7 @@ class Infos(commands.Cog):
         embed.add_field(name="Position", value=role.position, inline=False)
         embed.add_field(
             name="Created At",
-            value=str(datetime.timedelta(role.created_at)),
+            value=f"<t:{int(role.created_at.timestamp())}:d>",
             inline=False,
         )
         embed.add_field(name="Mentionable", value=role.mentionable, inline=False)
@@ -153,7 +157,7 @@ class Infos(commands.Cog):
         embed.set_thumbnail(url=role.guild.icon.url)
         await inter.response.send_message(embed=embed)
 
-    @slash_command(name="channelinfo", description="Get the info of a channel")
+    @slash_command(name="channelinfo", description="Displays information about a channel.")
     async def channelinfo(
         self,
         inter: Interaction,
@@ -169,7 +173,7 @@ class Infos(commands.Cog):
             ],
         ),
     ):
-        """Get the info of a channel
+        """Displays information about a channel.
 
         Args:
           inter (Interaction): The interaction
@@ -185,22 +189,33 @@ class Infos(commands.Cog):
         embed.add_field(name="Category", value=channel.category, inline=False)
         embed.add_field(
             name="Created At",
-            value=str(datetime.timedelta(channel.created_at)),
+            value=f"<t:{int(channel.created_at.timestamp())}:d>",
             inline=False,
         )
         embed.add_field(name="NSFW", value=channel.is_nsfw(), inline=False)
         embed.set_thumbnail(url=channel.guild.icon.url)
         await inter.response.send_message(embed=embed)
 
-    @slash_command(name="github", description="Get the github link of the bot")
+    @slash_command(name="github", description="Displays information about the bot's GitHub repository.")
     async def github(self, inter: Interaction):
-        """Get the github link of the bot
+        """Displays information about the bot's GitHub repository.
 
         Args:
           inter (Interaction): The interaction
         """
         await self.bot.standard_response(
             inter, title="Github", description="https://github.com/W1L7dev/Devbot"
+        )
+
+    @slash_command(name="website", description="Displays information about the bot's website.")
+    async def website(self, inter: Interaction):
+        """Displays information about the bot's website.
+
+        Args:
+          inter (Interaction): The interaction
+        """
+        await self.bot.standard_response(
+            inter, title="Website", description="https://w1l7dev.github.io/devbot/"
         )
 
 

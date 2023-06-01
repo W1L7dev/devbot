@@ -11,16 +11,16 @@ class Fun(commands.Cog):
     """Fun commands
 
     Commands:
-        8ball: Ask the magic 8ball a question
-        coinflip: Flip a coin
-        dice: Roll a dice
-        rps: Play rock paper scissors
-        choose: Choose between multiple options
-        russianroulette: Play russian roulette
-        slots: Play slots
-        ruin: Ruin text
-        reverse: Reverse text
-        morse: Morse code text
+        8ball: Asks the magic 8ball a question.
+        coinflip: Flips a coin.
+        dice: Rolls a dice.
+        rps: Plays rock, paper, scissors.
+        choose: Chooses between multiple options.
+        russianroulette: 	Plays russian roulette.
+        slots: 	Plays the slots.
+        ruin: Ruins text.
+        reverse: Reverses text.
+        morse: Converts text to morse code.
     """
 
     def __init__(self, bot):
@@ -51,13 +51,13 @@ class Fun(commands.Cog):
         self.rps_choices = ["rock", "paper", "scissors"]
         self.slots_choices = ["🍎", "🍊", "🍇", "🍒", "🍋", "🍉", "🍌", "🍍", "🍑"]
 
-    @slash_command(name="8ball", description="Ask the magic 8ball a question")
+    @slash_command(name="8ball", description="Asks the magic 8ball a question.")
     async def _8ball(
         self,
         inter: Interaction,
         question: str = SlashOption(name="question", description="Your question"),
     ):
-        """Ask the magic 8ball a question
+        """Asks the magic 8ball a question.
 
         Args:
           inter (Interaction): The interaction
@@ -69,9 +69,9 @@ class Fun(commands.Cog):
             description=f"Question: {question} \nAnswer: {random.choice(self.responses)}",
         )
 
-    @slash_command(name="coinflip", description="Flip a coin")
+    @slash_command(name="coinflip", description="Flips a coin.")
     async def coinflip(self, inter: Interaction):
-        """Flip a coin
+        """Flips a coin.
 
         Args:
           inter (Interaction): The interaction
@@ -82,9 +82,9 @@ class Fun(commands.Cog):
             description=f"Result: {random.choice(['Heads', 'Tails'])}",
         )
 
-    @slash_command(name="dice", description="Roll a dice")
+    @slash_command(name="dice", description="Rolls a dice.")
     async def dice(self, inter: Interaction):
-        """Roll a dice
+        """Rolls a dice.
 
         Args:
           inter (Interaction): The interaction
@@ -93,7 +93,7 @@ class Fun(commands.Cog):
             inter, title="Dice", description=f"Result: {random.randint(1, 6)}"
         )
 
-    @slash_command(name="rps", description="Play rock paper scissors")
+    @slash_command(name="rps", description="Plays rock, paper, scissors.")
     async def rps(
         self,
         inter: Interaction,
@@ -103,7 +103,7 @@ class Fun(commands.Cog):
             choices=["rock", "paper", "scissors"],
         ),
     ):
-        """Play rock paper scissors
+        """Plays rock, paper, scissors.
 
         Args:
           inter (Interaction): The interaction
@@ -130,9 +130,9 @@ class Fun(commands.Cog):
             description=f"You chose {choice} \nI chose {bot_choice} \nResult: {result}",
         )
 
-    @slash_command(name="choose", description="Choose between multiple options")
+    @slash_command(name="choose", description="Chooses between multiple options.")
     async def choose(self, inter: Interaction, choices: str):
-        """Choose between multiple options
+        """Chooses between multiple options.
 
         Args:
           inter (Interaction): The interaction
@@ -144,9 +144,9 @@ class Fun(commands.Cog):
             description=f"Result: {random.choice(choices.split(','))}",
         )
 
-    @slash_command(name="russianroulette", description="Play russian roulette")
+    @slash_command(name="russianroulette", description="	Plays russian roulette.")
     async def russianroulette(self, inter: Interaction):
-        """Play russian roulette
+        """	Plays russian roulette.
 
         Args:
           inter (Interaction): The interaction
@@ -157,9 +157,9 @@ class Fun(commands.Cog):
             description=f"Result: You {random.choice(['died', 'lived'])}",
         )
 
-    @slash_command(name="slots", description="Play slots")
+    @slash_command(name="slots", description="	Plays the slots.")
     async def slots(self, inter: Interaction):
-        """Play slots
+        """	Plays the slots.
 
         Args:
           inter (Interaction): The interaction
@@ -170,13 +170,13 @@ class Fun(commands.Cog):
             description="".join(random.choices(self.slots_choices, k=3)),
         )
 
-    @slash_command(name="ruin", description="Ruin text")
+    @slash_command(name="ruin", description="Ruins text.")
     async def ruin(
         self,
         inter: Interaction,
         text: str = SlashOption(name="text", description="Text to ruin"),
     ):
-        """Ruin text
+        """Ruins text.
 
         Args:
           inter (Interaction): The interaction
@@ -188,13 +188,13 @@ class Fun(commands.Cog):
             description=f"Result: {zalgo(text)}",
         )
 
-    @slash_command(name="reverse", description="Reverse text")
+    @slash_command(name="reverse", description="Reverses text.")
     async def reverse(
         self,
         inter: Interaction,
         text: str = SlashOption(name="text", description="Text to reverse"),
     ):
-        """Reverse text
+        """Reverses text.
 
         Args:
           inter (Interaction): The interaction
@@ -206,13 +206,13 @@ class Fun(commands.Cog):
             description=f"Result: {text[::-1]}",
         )
 
-    @slash_command(name="morse", description="Morse code text")
+    @slash_command(name="morse", description="Converts text to morse code.")
     async def morse(
         self,
         inter: Interaction,
         text: str = SlashOption(name="text", description="Text to morse code"),
     ):
-        """Morse code text
+        """Converts text to morse code.
 
         Args:
           inter (Interaction): The interaction

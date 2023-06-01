@@ -1,97 +1,17 @@
-from typing import Optional, Union
-
+import logmaster
 import mafic
-from nextcord import Color, Embed, Guild, Interaction, Member, Message, User
-from nextcord.abc import GuildChannel
+from nextcord import Color, Embed, Interaction, Message, User, TextChannel
 from nextcord.ext import commands
 
 from config import Config
-from env import Environment
 
 
 class Bot(commands.Bot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.config: Config
-        self.env: Environment
-        self.logger: ...
         self.pool = mafic.NodePool(self)
-
-    async def getch_guild(self, guild_id: int) -> Union[Guild, bool]:
-        """Looks up a guild in cache or fetches if not found.
-
-        Args:
-          guild_id (int): the id of the guild
-
-        Returns:
-          Union[Guild, bool]: the guild or False if not found
-        """
-        guild: Union[Guild, None] = self.get_guild(guild_id)
-        if guild:
-            return guild
-        try:
-            guild: Union[Guild, None] = await self.fetch_guild(guild_id)
-        except:
-            return False
-        return guild
-
-    async def getch_user(self, user_id: int) -> Union[User, bool]:
-        """Looks up a user in cache or fetches if not found.
-
-        Args:
-          user_id (int): the id of the user
-
-        Returns:
-          Union[User, bool]: the user or False if not found
-        """
-        user: Union[User, None] = self.get_user(user_id)
-        if user:
-            return user
-        try:
-            user: Union[User, None] = await self.fetch_user(user_id)
-        except:
-            return False
-        return user
-
-    async def getch_member(self, guild_id: int, member_id: int) -> Union[Member, bool]:
-        """Looks up a member in cache or fetches if not found.
-
-        Args:
-          guild_id (int): the id of the guild
-          member_id (int): the id of the member
-
-        Returns:
-          Union[Member, bool]: the member or False if not found
-        """
-        guild: Union[Member, None] = await self.getch_guild(guild_id)
-        if not guild:
-            return False
-        member: Union[Member, None] = guild.get_member(member_id)
-        if member is not None:
-            return member
-        try:
-            member: Union[Member, None] = await guild.fetch_member(member_id)
-        except:
-            return False
-        return member
-
-    async def getch_channel(self, channel_id: int) -> Union[GuildChannel, bool]:
-        """Looks up a channel in cache or fetches if not found.
-
-        Args:
-          channel_id (int): the id of the channel
-
-        Returns:
-          Union[GuildChannel, bool]: the channel or False if not found
-        """
-        channel: Union[GuildChannel, None] = self.get_channel(channel_id)
-        if channel:
-            return channel
-        try:
-            channel: Union[GuildChannel, None] = await self.fetch_channel(channel_id)
-        except:
-            return False
-        return channel
+        self.logger: logmaster.Logger
 
     async def log(self, title: str, description: str):
         """Sends a message in the logs
@@ -100,7 +20,11 @@ class Bot(commands.Bot):
           title (str): the title of the embed
           description (str): the description of the embed
         """
-        log_channel = await self.getch_channel(self.config.get("log_channel"))
+        channel = self.get_channel(self.config.get("log_channel"))
+        if isinstance(channel, TextChannel):
+            log_channel = channel
+        else:
+            log_channel = None
         if not log_channel:
             return
         await log_channel.send(
@@ -115,23 +39,20 @@ class Bot(commands.Bot):
         self,
         inter: Interaction,
         title: str,
-        description: str,
-        ephemeral: Optional[bool] = None,
+        description: str
     ):
         """Sends the standard response
         Args:
           inter (Interaction): the interaction
           title (str): title of the embed
           description (str): description of the embed
-          ephemeral (Optional[bool], optional): whether the message should be ephemeral. Defaults to None.
         """
         await inter.response.send_message(
             embed=Embed(
                 title=title,
                 description=description,
                 color=getattr(Color, self.config.get("default_embed_color"))(),
-            ),
-            ephemeral=ephemeral if ephemeral is not None else False,
+            )
         )
 
     async def add_nodes(self):

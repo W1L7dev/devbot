@@ -13,26 +13,26 @@ class Moderation(commands.Cog):
     """Moderation commands
 
     Commands:
-        raidmode: Toggle raid mode
-        lock: Lock a channel
-        unlock: Unlock a channel
-        slowmode: Set the slowmode of a channel
-        clear: Clear messages
-        ban: Ban a user
-        unban: Unban a user
-        kick: Kick a user
-        timeout: Temporarily mute a member
-        warn: Warn a member
-        warnings: Check a user's warnings
-        clearwarns: Clear a user's warnings
-        removewarn: Remove a warning from a user
+        raidmode: Toggles raidmode.
+        lock: Locks a channel.
+        unlock: Unlocks a channel.
+        slowmode:	Sets the slowmode of a channel.
+        clear: Clears messages.
+        ban: Bans a user.
+        unban: Unbans a user.
+        kick: Kicks a user.
+        timeout: Timeouts a user.
+        warn: Warns a user.
+        warnings: Displays a user's warnings.
+        clearwarns: Clears a user's warnings.
+        removewarn: Removes a warning from a user.
     """
 
     def __init__(self, bot):
         self.bot = bot
         self.dir = os.path.dirname(os.path.realpath(__file__)).replace("\\", "/")
 
-    @slash_command(name="raidmode", description="Toggle raid mode")
+    @slash_command(name="raidmode", description="Toggles raidmode.")
     @application_checks.has_guild_permissions(manage_guild=True)
     async def raidmode(
         self,
@@ -41,7 +41,7 @@ class Moderation(commands.Cog):
             name="toggle", description="Whether to turn raid mode on or off"
         ),
     ):
-        """Toggle raid mode
+        """Toggles raidmode.
 
         Args:
           inter (Interaction): The interaction.
@@ -74,7 +74,7 @@ class Moderation(commands.Cog):
             description=f"Raid mode is now **{'on' if toggle else 'off'}**",
         )
 
-    @slash_command(name="lock", description="Lock a channel")
+    @slash_command(name="lock", description="Locks a channel.")
     @application_checks.has_guild_permissions(manage_channels=True)
     async def lock(
         self,
@@ -97,7 +97,7 @@ class Moderation(commands.Cog):
             title="Channel Locked", description=f"Locked **{channel.mention}**"
         )
 
-    @slash_command(name="unlock", description="Unlock a channel")
+    @slash_command(name="unlock", description="Unlocks a channel.")
     @application_checks.has_guild_permissions(manage_channels=True)
     async def unlock(
         self,
@@ -122,7 +122,7 @@ class Moderation(commands.Cog):
             title="Channel Unlocked", description=f"Unlocked **{channel.mention}**"
         )
 
-    @slash_command(name="slowmode", description="Set the slowmode of a channel")
+    @slash_command(name="slowmode", description="Sets the slowmode of a channel.")
     @application_checks.has_guild_permissions(manage_channels=True)
     async def slowmode(
         self,
@@ -135,7 +135,7 @@ class Moderation(commands.Cog):
             name="channel", description="The channel you want to set the slowmode of"
         ),
     ):
-        """Set the slowmode of a channel
+        """Sets the slowmode of a channel.
 
         Args:
           inter (Interaction): The interaction
@@ -153,7 +153,7 @@ class Moderation(commands.Cog):
             description=f"Set the slowmode of **{channel.mention}** to **{seconds}** seconds",
         )
 
-    @slash_command(name="clear", description="Clear messages")
+    @slash_command(name="clear", description="Clears messages.")
     @application_checks.has_guild_permissions(manage_messages=True)
     async def clear(
         self,
@@ -165,7 +165,7 @@ class Moderation(commands.Cog):
             name="channel", description="The channel you want to clear the messages of"
         ),
     ):
-        """Clear messages
+        """Clears messages.
 
         Args:
           inter (Interaction): The interaction
@@ -185,7 +185,7 @@ class Moderation(commands.Cog):
         await asyncio.sleep(5)
         await message.delete()
 
-    @slash_command(name="ban", description="Ban a user")
+    @slash_command(name="ban", description="Bans a user.")
     @application_checks.has_guild_permissions(ban_members=True)
     async def ban(
         self,
@@ -197,7 +197,7 @@ class Moderation(commands.Cog):
             name="reason", description="The reason you want to ban the member for"
         ),
     ):
-        """Ban a user
+        """Bans a user.
 
         Args:
           inter (Interaction): The interaction
@@ -215,7 +215,7 @@ class Moderation(commands.Cog):
             description=f"Banned user **{member}** for **{reason}**",
         )
 
-    @slash_command(name="unban", description="Unban a user")
+    @slash_command(name="unban", description="Unbans a user.")
     @application_checks.has_guild_permissions(ban_members=True)
     async def unban(
         self,
@@ -224,7 +224,7 @@ class Moderation(commands.Cog):
             name="user", description="The user you want to unban"
         ),
     ):
-        """Unban a user
+        """Unbans a user.
 
         Args:
           inter (Interaction): The interaction
@@ -248,7 +248,7 @@ class Moderation(commands.Cog):
                 description=f"Could not find user with id **{user_id}**",
             )
 
-    @slash_command(name="kick", description="Kick a user")
+    @slash_command(name="kick", description="Kicks a user.")
     @application_checks.has_guild_permissions(kick_members=True)
     async def kick(
         self,
@@ -260,7 +260,7 @@ class Moderation(commands.Cog):
             name="reason", description="The reason you want to kick the member for"
         ),
     ):
-        """Kick a user
+        """Kicks a user.
 
         Args:
           inter (Interaction): The interaction
@@ -278,7 +278,7 @@ class Moderation(commands.Cog):
             description=f"Kicked user **{member}** for **{reason}**",
         )
 
-    @slash_command(name="timeout", description="Temporarily mute a member")
+    @slash_command(name="timeout", description="Timeouts a user.")
     @application_checks.has_guild_permissions(manage_roles=True)
     async def timeout(
         self,
@@ -304,7 +304,7 @@ class Moderation(commands.Cog):
             name="reason", description="The reason you want to timeout the member for"
         ),
     ):
-        """Temporarily mute a member
+        """Timeouts a user.
 
         Args:
           inter (Interaction): The interaction
@@ -338,7 +338,7 @@ class Moderation(commands.Cog):
             description=f"Timed out **{member}** for **{time}{modifier}** for **{reason}**",
         )
 
-    @slash_command(name="warn", description="Warn a member")
+    @slash_command(name="warn", description="Warns a user.")
     @application_checks.has_guild_permissions(manage_messages=True)
     async def warn(
         self,
@@ -370,7 +370,7 @@ class Moderation(commands.Cog):
             title="Member Warned", description=f"Warned **{member}** for **{reason}**"
         )
 
-    @slash_command(name="warnings", description="Check a user's warnings")
+    @slash_command(name="warnings", description="Displays a user's warnings.")
     @application_checks.has_guild_permissions(manage_messages=True)
     async def warnings(
         self,
@@ -393,7 +393,7 @@ class Moderation(commands.Cog):
                 inter, title=f"Warnings for {member}", description="No warnings"
             )
 
-    @slash_command(name="clearwarns", description="Clear a user's warnings")
+    @slash_command(name="clearwarns", description="Clears a user's warnings.")
     @application_checks.has_guild_permissions(manage_messages=True)
     async def clearwarns(self, inter: Interaction, member: Member):
         with open(f"{self.dir}/json/warns.json", "r") as f:
@@ -408,7 +408,7 @@ class Moderation(commands.Cog):
             description=f"Cleared warnings for **{member}**",
         )
 
-    @slash_command(name="removewarn", description="Remove a warning from a user")
+    @slash_command(name="removewarn", description="Removes a warning from a user.")
     @application_checks.has_guild_permissions(manage_messages=True)
     async def removewarn(self, inter: Interaction, member: Member, number: int):
         with open(f"{self.dir}/json/warns.json", "r") as f:

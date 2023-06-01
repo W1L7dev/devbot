@@ -10,11 +10,11 @@ class Levelling(commands.Cog):
     """Levelling commands
 
     Commands:
-        rank: Shows a member's rank
-        leaderboard: Shows the leaderboard
-        reset: Resets your rank
+        rank: Displays your rank.
+        leaderboard: Displays the server leaderboard.
+        reset: Resets your rank.
     """
-    
+
     def __init__(self, bot):
         self.dir = os.path.dirname(os.path.realpath(__file__)).replace("\\", "/")
         self.bot = bot
@@ -36,7 +36,7 @@ class Levelling(commands.Cog):
         with open(f"{self.dir}/json/levels.json", "w") as f:
             json.dump(users, f)
 
-    @slash_command(name="rank", description="Shows your rank")
+    @slash_command(name="rank", description="Displays your rank.")
     async def rank(
         self,
         inter: Interaction,
@@ -44,7 +44,7 @@ class Levelling(commands.Cog):
             name="member", description="The member you want to see the rank of"
         ),
     ):
-        """Shows a member's rank
+        """Displays your rank.
 
         Args:
           inter (Interaction): The interaction
@@ -69,9 +69,9 @@ class Levelling(commands.Cog):
         embed.set_thumbnail(url=member.avatar.url)
         await inter.response.send_message(embed=embed)
 
-    @slash_command(name="leaderboard", description="Shows the leaderboard")
+    @slash_command(name="leaderboard", description="Displays the server leaderboard.")
     async def leaderboard(self, inter: Interaction):
-        """Shows the leaderboard
+        """Displays the server leaderboard.
 
         Args:
           inter (Interaction): The interaction
@@ -93,9 +93,9 @@ class Levelling(commands.Cog):
             )
         await inter.response.send_message(embed=embed)
 
-    @slash_command(name="reset", description="Resets your rank")
+    @slash_command(name="reset", description="Resets your rank.")
     async def reset(self, inter: Interaction):
-        """Resets your rank
+        """Resets your rank.
 
         Args:
           inter (Interaction): The interaction

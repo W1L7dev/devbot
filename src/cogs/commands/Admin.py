@@ -10,17 +10,18 @@ class Admin(commands.Cog):
 
     Commands:
         role:
-            add: Add a role to a user
-            remove: Remove a role from a user
-            create: Create a role
-            delete: Delete a role
+            add: Adds a role to the specified user.
+            remove: Removes a role from the specified user.
+            create: Creates a new role with the specified name.
+            delete: Deletes the specified role.
+            rename: Renames the specified role.
         category:
             create: Creates a new category with the specified name.
             delete: Deletes the specified category.
             move: Moves a channel to a specified category
         channel:
-            create: Create a channel
-            delete: Delete a channel
+            create: Creates a new channel with the specified name.
+            delete: Deletes the specified channel.
         voice:
             create: Create a voice channel
             delete: Delete a voice channel
@@ -34,7 +35,7 @@ class Admin(commands.Cog):
     async def role(self, inter: Interaction):
         pass
 
-    @role.subcommand(name="rename", description="Rename a role")
+    @role.subcommand(name="rename", description="Renames the specified role.")
     @application_checks.has_permissions(manage_roles=True)
     async def renamerole(
         self,
@@ -42,7 +43,7 @@ class Admin(commands.Cog):
         role: Role = SlashOption(name="role", description="The role to rename"),
         name: str = SlashOption(name="name", description="The new name of the role"),
     ):
-        """Rename a role
+        """Renames the specified role.
 
         Args:
           inter (Interaction): The interaction
@@ -60,7 +61,7 @@ class Admin(commands.Cog):
             description=f"{inter.user.mention} renamed **{role.mention}** to **{name}**",
         )
 
-    @role.subcommand(name="add", description="Add a role to a user")
+    @role.subcommand(name="add", description="Adds a role to the specified user.")
     @application_checks.has_permissions(manage_roles=True)
     async def addrole(
         self,
@@ -70,7 +71,7 @@ class Admin(commands.Cog):
             name="member", description="the member to assign a role"
         ),
     ):
-        """Add a role to a user
+        """Adds a role to the specified user.
 
         Args:
           inter (Interaction): The interaction
@@ -88,7 +89,7 @@ class Admin(commands.Cog):
             description=f"{inter.user.mention} added **{role.mention}** to **{member.mention}**",
         )
 
-    @role.subcommand(name="remove", description="Remove a role from a user")
+    @role.subcommand(name="remove", description="Removes a role from the specified user.")
     @application_checks.has_permissions(manage_roles=True)
     async def removerole(
         self,
@@ -98,7 +99,7 @@ class Admin(commands.Cog):
             name="member", description="the member to remove a role"
         ),
     ):
-        """Remove a role from a user
+        """Removes a role from the specified user.
 
         Args:
           inter (Interaction): The interaction
@@ -116,7 +117,7 @@ class Admin(commands.Cog):
             description=f"{inter.user.mention} removed **{role.mention}** from **{member.mention}**",
         )
 
-    @role.subcommand(name="create", description="Create a role")
+    @role.subcommand(name="create", description="Creates a new role with the specified name.")
     @application_checks.has_permissions(manage_roles=True)
     async def createrole(
         self,
@@ -142,7 +143,7 @@ class Admin(commands.Cog):
             ],
         ),
     ):
-        """Create a role
+        """Creates a new role with the specified name.
 
         Args:
           inter (Interaction): The interaction
@@ -160,14 +161,14 @@ class Admin(commands.Cog):
             description=f"{inter.user.mention} created **{name}**",
         )
 
-    @role.subcommand(name="delete", description="Delete a role")
+    @role.subcommand(name="delete", description="Deletes the specified role.")
     @application_checks.has_permissions(manage_roles=True)
     async def delrole(
         self,
         inter: Interaction,
         role: Role = SlashOption(name="role", description="The role to delete"),
     ):
-        """Delete a role
+        """Deletes the specified role.
 
         Args:
           inter (Interaction): The interaction
@@ -282,7 +283,7 @@ class Admin(commands.Cog):
     async def channel(self, inter: Interaction):
         pass
 
-    @channel.subcommand(name="create", description="Create a channel")
+    @channel.subcommand(name="create", description="Creates a new channel with the specified name.")
     @application_checks.has_permissions(manage_channels=True)
     async def createchannel(
         self,
@@ -292,7 +293,7 @@ class Admin(commands.Cog):
             name="category", description="The category to add the channel to"
         ),
     ):
-        """Create a channel
+        """Creates a new channel with the specified name.
 
         Args:
           inter (Interaction): The interaction
@@ -310,7 +311,7 @@ class Admin(commands.Cog):
             description=f"{inter.user.mention} created **{name}**",
         )
 
-    @channel.subcommand(name="delete", description="Delete a channel")
+    @channel.subcommand(name="delete", description="Deletes the specified channel.")
     @application_checks.has_permissions(manage_channels=True)
     async def delchannel(
         self,
@@ -319,7 +320,7 @@ class Admin(commands.Cog):
             name="channel", description="The channel to delete"
         ),
     ):
-        """Delete a channel
+        """Deletes the specified channel.
 
         Args:
           inter (Interaction): The interaction

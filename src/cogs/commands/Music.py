@@ -12,23 +12,22 @@ class Music(commands.Cog):
     """Music commands
 
     Commands:
-        lyrics: Get the lyrics of a song
+        lyrics: Displays the lyrics of a song.
         music:
-            play: Play a song
-            pause: Pause the current song
-            resume: Resume the current song
-            stop: Stop the current song
-            nowplaying: Get the current song
-            queue: Get the queue
-            volume: Change the volume
-            connect: Connect to a voice channel
-            disconnect: Disconnect from a voice channel
+            play: Plays a song.
+            pause: Pauses the music.
+            resume: Resumes the music.
+            stop: 	Stops the music.
+            nowplaying: Displays the current song.
+            volume: Changes the volume.
+            connect: Joins a voice channel.
+            disconnect: Disconnects from a voice channel.
     """
 
     def __init__(self, bot):
         self.bot = bot
 
-    @slash_command(name="lyrics", description="Get the lyrics of a song")
+    @slash_command(name="lyrics", description="Displays the lyrics of a song.")
     async def lyrics(
         self,
         inter: Interaction,
@@ -36,13 +35,13 @@ class Music(commands.Cog):
             name="search", description="The song you want to get the lyrics of"
         ),
     ):
-        """Get the lyrics of a song.
+        """Displays the lyrics of a song.
 
         Args:
           inter (Interaction): The interaction.
           search (str, optional): The song you want to get the lyrics of. Defaults to SlashOption(name="search", description="The song you want to get the lyrics of").
         """
-        genius = lyricsgenius.Genius(self.bot.env.genius)
+        genius = lyricsgenius.Genius(self.bot.config.get("genius"))
         try:
             async with inter.channel.typing():
                 song = genius.search_song(search)
@@ -65,7 +64,7 @@ class Music(commands.Cog):
 
     @music.subcommand(
         name="play",
-        description="Play a song",
+        description="Plays a song.",
     )
     async def play(
         self,
@@ -74,7 +73,7 @@ class Music(commands.Cog):
             name="search", description="The song you want to play"
         ),
     ):
-        """Play a song.
+        """Plays a song..
 
         Args:
           inter (Interaction): The interaction.
@@ -92,16 +91,20 @@ class Music(commands.Cog):
             )
         track = tracks[0]
         await player.play(track)
-        await self.bot.standard_response(
-            inter=inter, title="Playing", description=f"Playing **{track.title}**"
+        await inter.response.send_message(
+            embed=Embed(
+                title="Playing",
+                description=f"**{track.title}** by **{track.author}**",
+                color=getattr(Color, self.bot.config.get("default_embed_color"))(),
+            )
         )
 
     @music.subcommand(
         name="pause",
-        description="Pause the current song",
+        description="Pauses the music.",
     )
     async def pause(self, inter: Interaction):
-        """Pause the current song.
+        """Pauses the music.
 
         Args:
           inter (Interaction): The interaction.
@@ -120,10 +123,10 @@ class Music(commands.Cog):
 
     @music.subcommand(
         name="resume",
-        description="Resume the current song",
+        description="Resumes the music.",
     )
     async def resume(self, inter: Interaction):
-        """Resume the current song.
+        """Resumes the music.
 
         Args:
           inter (Interaction): The interaction.
@@ -142,10 +145,10 @@ class Music(commands.Cog):
 
     @music.subcommand(
         name="stop",
-        description="Stop the current song",
+        description="	Stops the music.",
     )
     async def stop(self, inter: Interaction):
-        """Stop the current song.
+        """	Stops the music.
 
         Args:
           inter (Interaction): The interaction.
@@ -163,10 +166,10 @@ class Music(commands.Cog):
 
     @music.subcommand(
         name="nowplaying",
-        description="Get the current song",
+        description="Displays the current song.",
     )
     async def nowplaying(self, inter: Interaction):
-        """Get the current song.
+        """Displays the current song.
 
         Args:
           inter (Interaction): The interaction.
@@ -191,7 +194,7 @@ class Music(commands.Cog):
 
     @music.subcommand(
         name="volume",
-        description="Change the volume",
+        description="Changes the volume.",
     )
     async def volume(
         self,
@@ -200,7 +203,7 @@ class Music(commands.Cog):
             name="volume", description="The volume you want to set"
         ),
     ):
-        """Change the volume.
+        """Changes the volume.
 
         Args:
           inter (Interaction): The interaction.
@@ -220,7 +223,7 @@ class Music(commands.Cog):
 
     @music.subcommand(
         name="connect",
-        description="Connect to a voice channel",
+        description="Joins a voice channel.",
     )
     async def connect(
         self,
@@ -232,7 +235,7 @@ class Music(commands.Cog):
             channel_types=[ChannelType.voice],
         ),
     ):
-        """Connect to a voice channel.
+        """Joins a voice channel.
 
         Args:
           inter (Interaction): The interaction.
@@ -255,10 +258,10 @@ class Music(commands.Cog):
 
     @music.subcommand(
         name="disconnect",
-        description="Disconnect from a voice channel",
+        description="Disconnects from a voice channel.",
     )
     async def disconnect(self, inter: Interaction):
-        """Disconnect from a voice channel.
+        """Disconnects from a voice channel..
 
         Args:
           inter (Interaction): The interaction.

@@ -96,94 +96,94 @@ py main.py
 
 DevBot has a variety of features, including moderation, fun, and utility commands. It also has a leveling system, which allows users to gain experience and level up. The bot is written in Python using the nextcord library. It is currently in development, and new features are being added regularly. If you have any suggestions, feel free to open an issue or pull request.
 
-| Command Name      | Description                                     | Usage                                                             | Category       |
-| ----------------- | ----------------------------------------------- | ----------------------------------------------------------------- | -------------- |
-| `category create` | Creates a new category with the specified name. | `/category create <name>`                                         | Administration |
-| `category delete` | Deletes the specified category.                 | `/category delete <name>`                                         | Administration |
-| `category move`   | Moves a channel to a specified category         | `/category move <channel>`                                        | Administration |
-| `channel create`  | Creates a new channel with the specified name.  | `/channel create <name>`                                          | Administration |
-| `channel delete`  | Deletes the specified channel.                  | `/channel delete <name>`                                          | Administration |
-| `role add`        | Adds a role to the specified user.              | `/role add <user> <role>`                                         | Administration |
-| `role create`     | Creates a new role with the specified name.     | `/role create <name>`                                             | Administration |
-| `role delete`     | Deletes the specified role.                     | `/role delete <name>`                                             | Administration |
-| `role remove`     | Removes a role from the specified user.         | `/role remove <user> <role>`                                      | Administration |
-| `role rename`     | Renames the specified role.                     | `/role rename <name>`                                             | Administration |
-| `uptime`          | Displays the bot's uptime.                      | `/uptime`                                                         | Development    |
-| `cls`             | Clears the terminal output.                     | `/cls`                                                            | Development    |
-| `print`           | Prints a message to the terminal.               | `/print <message>`                                                | Development    |
-| `restart`         | Restarts the bot.                               | `/restart`                                                        | Development    |
-| `shutdown`        | Shuts down the bot.                             | `/shutdown`                                                       | Development    |
-| `cog load`        | Loads a cog.                                    | `/cog load <cog>`                                                 | Development    |
-| `cog unload`      | Unloads a cog.                                  | `/cog unload <cog>`                                               | Development    |
-| `cog reload`      | Reloads a cog.                                  | `/cog reload <cog>`                                               | Development    |
-| `cog create`      | Creates a cog.                                  | `/cog create <name> <type>`                                       | Development    |
-| `activity`        | Sets the bot's activity.                        | `/activity <name>`                                                | Development    |
-| `status`          | Sets the bot's status.                          | `/status <online,idle,dnd,invisible>`                             | Development    |
-| `file read`       | Reads a file.                                   | `/file read <path>`                                               | Development    |
-| `file create`     | Creates a file.                                 | `/file create <path>`                                             | Development    |
-| `file write`      | Writes to a file.                               | `/file write <path> <message>`                                    | Development    |
-| `file delete`     | Deletes a file.                                 | `/file delete <path>`                                             | Development    |
-| `folder create`   | Creates a folder.                               | `/folder create <path>`                                           | Development    |
-| `folder delete`   | Deletes a folder.                               | `/folder delete <path>`                                           | Development    |
-| `folder list`     | Lists the contents of a folder.                 | `/folder list <path>`                                             | Development    |
-| `eval`            | Evaluates Python code.                          | `/eval <expression>`                                              | Development    |
-| `log`             | Logs a message to the terminal.                 | `/log <debug,info,warning,error,critical,success,fail> <message>` | Development    |
-| `request`         | Sends an http request to a website.             | `/request <url>`                                                  | Development    |
-| `jsondiagram`     | Generates a diagram from a json file/string.    | `/jsondiagram <json>`                                             | Development    |
-| `8ball`           | Asks the magic 8ball a question.                | `/8ball <question>`                                               | Fun            |
-| `coinflip`        | Flips a coin.                                   | `/coinflip`                                                       | Fun            |
-| `dice`            | Rolls a dice.                                   | `/dice`                                                           | Fun            |
-| `rps`             | Plays rock, paper, scissors.                    | `/rps <rock,paper,scissors>`                                      | Fun            |
-| `choose`          | Chooses between multiple options.               | `/choose <option1,option2...>`                                    | Fun            |
-| `slots`           | Plays the slots.                                | `/slots`                                                          | Fun            |
-| `russianroulette` | Plays russian roulette.                         | `/russianroulette`                                                | Fun            |
-| `ruin`            | Ruins text.                                     | `/ruin <text>`                                                    | Fun            |
-| `morse`           | Converts text to morse code.                    | `/morse <text>`                                                   | Fun            |
-| `reverse`         | Reverses text.                                  | `/reverse <text>`                                                 | Fun            |
-| `rules`           | Displays the server rules.                      | `/rules`                                                          | Informations   |
-| `userinfo`        | Displays information about a user.              | `/userinfo <user>`                                                | Informations   |
-| `serverinfo`      | Displays information about the server.          | `/serverinfo`                                                     | Informations   |
-| `roleinfo`        | Displays information about a role.              | `/roleinfo <role>`                                                | Informations   |
-| `channelinfo`     | Displays information about a channel.           | `/channelinfo <channel>`                                          | Informations   |
+| Command Name      | Description                                             | Usage                                                             | Category       |
+| ----------------- | ------------------------------------------------------- | ----------------------------------------------------------------- | -------------- |
+| `category create` | Creates a new category with the specified name.         | `/category create <name>`                                         | Administration |
+| `category delete` | Deletes the specified category.                         | `/category delete <name>`                                         | Administration |
+| `category move`   | Moves a channel to a specified category                 | `/category move <channel>`                                        | Administration |
+| `channel create`  | Creates a new channel with the specified name.          | `/channel create <name>`                                          | Administration |
+| `channel delete`  | Deletes the specified channel.                          | `/channel delete <name>`                                          | Administration |
+| `role add`        | Adds a role to the specified user.                      | `/role add <user> <role>`                                         | Administration |
+| `role create`     | Creates a new role with the specified name.             | `/role create <name>`                                             | Administration |
+| `role delete`     | Deletes the specified role.                             | `/role delete <name>`                                             | Administration |
+| `role remove`     | Removes a role from the specified user.                 | `/role remove <user> <role>`                                      | Administration |
+| `role rename`     | Renames the specified role.                             | `/role rename <name>`                                             | Administration |
+| `uptime`          | Displays the bot's uptime.                              | `/uptime`                                                         | Development    |
+| `cls`             | Clears the terminal output.                             | `/cls`                                                            | Development    |
+| `print`           | Prints a message to the terminal.                       | `/print <message>`                                                | Development    |
+| `restart`         | Restarts the bot.                                       | `/restart`                                                        | Development    |
+| `shutdown`        | Shuts down the bot.                                     | `/shutdown`                                                       | Development    |
+| `cog load`        | Loads a cog.                                            | `/cog load <cog>`                                                 | Development    |
+| `cog unload`      | Unloads a cog.                                          | `/cog unload <cog>`                                               | Development    |
+| `cog reload`      | Reloads a cog.                                          | `/cog reload <cog>`                                               | Development    |
+| `cog create`      | Creates a cog.                                          | `/cog create <name> <type>`                                       | Development    |
+| `activity`        | Sets the bot's activity.                                | `/activity <name>`                                                | Development    |
+| `status`          | Sets the bot's status.                                  | `/status <online,idle,dnd,invisible>`                             | Development    |
+| `file read`       | Reads a file.                                           | `/file read <path>`                                               | Development    |
+| `file create`     | Creates a file.                                         | `/file create <path>`                                             | Development    |
+| `file write`      | Writes to a file.                                       | `/file write <path> <message>`                                    | Development    |
+| `file delete`     | Deletes a file.                                         | `/file delete <path>`                                             | Development    |
+| `folder create`   | Creates a folder.                                       | `/folder create <path>`                                           | Development    |
+| `folder delete`   | Deletes a folder.                                       | `/folder delete <path>`                                           | Development    |
+| `folder list`     | Lists the contents of a folder.                         | `/folder list <path>`                                             | Development    |
+| `eval`            | Evaluates Python code.                                  | `/eval <expression>`                                              | Development    |
+| `log`             | Logs a message to the terminal.                         | `/log <debug,info,warning,error,critical,success,fail> <message>` | Development    |
+| `request`         | Sends an http request to a website.                     | `/request <url>`                                                  | Development    |
+| `jsondiagram`     | Generates a diagram from a json file/string.            | `/jsondiagram <json>`                                             | Development    |
+| `8ball`           | Asks the magic 8ball a question.                        | `/8ball <question>`                                               | Fun            |
+| `coinflip`        | Flips a coin.                                           | `/coinflip`                                                       | Fun            |
+| `dice`            | Rolls a dice.                                           | `/dice`                                                           | Fun            |
+| `rps`             | Plays rock, paper, scissors.                            | `/rps <rock,paper,scissors>`                                      | Fun            |
+| `choose`          | Chooses between multiple options.                       | `/choose <option1,option2...>`                                    | Fun            |
+| `slots`           | Plays the slots.                                        | `/slots`                                                          | Fun            |
+| `russianroulette` | Plays russian roulette.                                 | `/russianroulette`                                                | Fun            |
+| `ruin`            | Ruins text.                                             | `/ruin <text>`                                                    | Fun            |
+| `morse`           | Converts text to morse code.                            | `/morse <text>`                                                   | Fun            |
+| `reverse`         | Reverses text.                                          | `/reverse <text>`                                                 | Fun            |
+| `rules`           | Displays the server rules.                              | `/rules`                                                          | Informations   |
+| `userinfo`        | Displays information about a user.                      | `/userinfo <user>`                                                | Informations   |
+| `serverinfo`      | Displays information about the server.                  | `/serverinfo`                                                     | Informations   |
+| `roleinfo`        | Displays information about a role.                      | `/roleinfo <role>`                                                | Informations   |
+| `channelinfo`     | Displays information about a channel.                   | `/channelinfo <channel>`                                          | Informations   |
 | `github`          | Displays information about the bot's GitHub repository. | `/github <user/repository>`                                       | Informations   |
 | `website`         | Displays information about the bot's website.           | `/website <url>`                                                  | Informations   |
-| `rank`            | Displays your rank.                             | `/rank <member>`                                                  | Levelling      |
-| `leaderboard`     | Displays the server leaderboard.                | `/leaderboard`                                                    | Levelling      |
-| `reset`           | Resets your rank.                               | `/reset`                                                          | Levelling      |
-| `raidmode`        | Toggles raidmode.                               | `/raidmode <True,False>`                                          | Moderation     |
-| `lock`            | Locks a channel.                                | `/lock <channel>`                                                 | Moderation     |
-| `unlock`          | Unlocks a channel.                              | `/unlock <channel>`                                               | Moderation     |
-| `slowmode`        | Sets the slowmode of a channel.                 | `/slowmode <channel> <time>`                                      | Moderation     |
-| `ban`             | Bans a user.                                    | `/ban <user> <reason>`                                            | Moderation     |
-| `unban`           | Unbans a user.                                  | `/unban <user>`                                                   | Moderation     |
-| `kick`            | Kicks a user.                                   | `/kick <user> <reason>`                                           | Moderation     |
-| `clear`           | Clears messages.                                | `/clear <amount>`                                                 | Moderation     |
-| `timeout`         | Timeouts a user.                                | `/timeout <user> <time> <reason>`                                 | Moderation     |
-| `warn`            | Warns a user.                                   | `/warn <user> <reason>`                                           | Moderation     |
-| `warnings`        | Displays a user's warnings.                     | `/warnings <user>`                                                | Moderation     |
-| `clearwarns`      | Clears a user's warnings.                       | `/clearwarns <user>`                                              | Moderation     |
-| `removewarn`      | Removes a warning from a user.                  | `/removewarn <user> <id>`                                         | Moderation     |
-| `play`            | Plays a song.                                   | `/play <song>`                                                    | Music          |
-| `pause`           | Pauses the music.                               | `/pause`                                                          | Music          |
-| `resume`          | Resumes the music.                              | `/resume`                                                         | Music          |
-| `volume`          | Changes the volume.                             | `/volume <volume>`                                                | Music          |
-| `nowplaying`      | Displays the current song.                      | `/nowplaying`                                                     | Music          |
-| `stop`            | Stops the music.                                | `/stop`                                                           | Music          |
-| `connect`         | Joins a voice channel.                          | `/connect`                                                        | Music          |
-| `disconnect`      | Disconnects from a voice channel.               | `/disconnect`                                                     | Music          |
-| `lyrics`          | Displays the lyrics of a song.                  | `/lyrics <song>`                                                  | Music          |
-| `poll`            | Creates a poll.                                 | `/poll <question> <choice1,choice2...>`                           | Utils          |
-| `pollresults`     | Displays the results of a poll.                 | `/pollresults <message id>`                                       | Utils          |
-| `ping`            | Displays the bot's ping.                        | `/ping`                                                           | Utils          |
-| `say`             | Makes the bot say something.                    | `/say <message>`                                                  | Utils          |
-| `embed`           | Makes the bot send an embed.                    | `/embed <title> <description>`                                    | Utils          |
-| `nick`            | Changes your nickname.                          | `/nick <nickname>`                                                | Utils          |
-| `resetnick`       | Resets your nickname.                           | `/resetnick`                                                      | Utils          |
-| `avatar`          | Displays a user's avatar.                       | `/avatar <user>`                                                  | Utils          |
-| `giveaway`        | Creates a giveaway.                             | `/giveaway <time> <winners> <prize>`                              | Utils          |
-| `ticket`          | Creates a ticket message.                       | `/ticket <message id>`                                            | Utils          |
-| `math`            | Evaluates a mathematical expression.            | `/math <expression>`                                              | Utils          |
-| `img`             | Generates an image with AI.                     | `/img <prompt></prompt>`                                          | Utils          |
+| `rank`            | Displays your rank.                                     | `/rank <member>`                                                  | Levelling      |
+| `leaderboard`     | Displays the server leaderboard.                        | `/leaderboard`                                                    | Levelling      |
+| `reset`           | Resets your rank.                                       | `/reset`                                                          | Levelling      |
+| `raidmode`        | Toggles raidmode.                                       | `/raidmode <True,False>`                                          | Moderation     |
+| `lock`            | Locks a channel.                                        | `/lock <channel>`                                                 | Moderation     |
+| `unlock`          | Unlocks a channel.                                      | `/unlock <channel>`                                               | Moderation     |
+| `slowmode`        | Sets the slowmode of a channel.                         | `/slowmode <channel> <time>`                                      | Moderation     |
+| `ban`             | Bans a user.                                            | `/ban <user> <reason>`                                            | Moderation     |
+| `unban`           | Unbans a user.                                          | `/unban <user>`                                                   | Moderation     |
+| `kick`            | Kicks a user.                                           | `/kick <user> <reason>`                                           | Moderation     |
+| `clear`           | Clears messages.                                        | `/clear <amount>`                                                 | Moderation     |
+| `timeout`         | Timeouts a user.                                        | `/timeout <user> <time> <reason>`                                 | Moderation     |
+| `warn`            | Warns a user.                                           | `/warn <user> <reason>`                                           | Moderation     |
+| `warnings`        | Displays a user's warnings.                             | `/warnings <user>`                                                | Moderation     |
+| `clearwarns`      | Clears a user's warnings.                               | `/clearwarns <user>`                                              | Moderation     |
+| `removewarn`      | Removes a warning from a user.                          | `/removewarn <user> <id>`                                         | Moderation     |
+| `play`            | Plays a song.                                           | `/play <song>`                                                    | Music          |
+| `pause`           | Pauses the music.                                       | `/pause`                                                          | Music          |
+| `resume`          | Resumes the music.                                      | `/resume`                                                         | Music          |
+| `volume`          | Changes the volume.                                     | `/volume <volume>`                                                | Music          |
+| `nowplaying`      | Displays the current song.                              | `/nowplaying`                                                     | Music          |
+| `stop`            | Stops the music.                                        | `/stop`                                                           | Music          |
+| `connect`         | Joins a voice channel.                                  | `/connect`                                                        | Music          |
+| `disconnect`      | Disconnects from a voice channel.                       | `/disconnect`                                                     | Music          |
+| `lyrics`          | Displays the lyrics of a song.                          | `/lyrics <song>`                                                  | Music          |
+| `poll`            | Creates a poll.                                         | `/poll <question> <choice1,choice2...>`                           | Utils          |
+| `pollresults`     | Displays the results of a poll.                         | `/pollresults <message id>`                                       | Utils          |
+| `ping`            | Displays the bot's ping.                                | `/ping`                                                           | Utils          |
+| `say`             | Makes the bot say something.                            | `/say <message>`                                                  | Utils          |
+| `embed`           | Makes the bot send an embed.                            | `/embed <title> <description>`                                    | Utils          |
+| `nick`            | Changes your nickname.                                  | `/nick <nickname>`                                                | Utils          |
+| `resetnick`       | Resets your nickname.                                   | `/resetnick`                                                      | Utils          |
+| `avatar`          | Displays a user's avatar.                               | `/avatar <user>`                                                  | Utils          |
+| `giveaway`        | Creates a giveaway.                                     | `/giveaway <time> <winners> <prize>`                              | Utils          |
+| `ticket`          | Creates a ticket message.                               | `/ticket <message id>`                                            | Utils          |
+| `math`            | Evaluates a mathematical expression.                    | `/math <expression>`                                              | Utils          |
+| `img`             | Generates an image with AI.                             | `/img <prompt>`                                                   | Utils          |
 
 ## Contributing
 
@@ -196,8 +196,8 @@ Contributors in [CONTRIBUTORS.md](CONTRIBUTORS.md)
 
 ## Contact
 
-Discord: W1L7#9944
-=======
+# Discord: W1L7#9944
+
 Email: w1l7dev@gmail.com
 Website: https://w1l7dev.github.io/
 

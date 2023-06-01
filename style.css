@@ -201,25 +201,8 @@ a:hover {
   margin-bottom: 1rem;
 }
 
-#commands table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-#commands table td {
-  padding: 0.5rem;
-}
-
-#commands table tr:nth-child(even) {
-  background-color: #252525;
-}
-
-#commands table tr:nth-child(odd) {
-  background-color: #333333;
-}
-
-#commands table tr:hover {
-  background-color: #464646;
+#commands ul {
+  margin-left: 1rem;
 }
 
 #support {
@@ -283,7 +266,7 @@ a:hover {
     text-align: left;
   }
 
-  #article {
+  #about {
     flex-direction: column;
   }
 
@@ -293,9 +276,6 @@ a:hover {
 
   header h2 {
     font-size: medium;
-  }
-  table {
-    width: 100%;
   }
 }
 

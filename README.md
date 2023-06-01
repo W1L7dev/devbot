@@ -58,7 +58,7 @@ After, you'll need to create a Genius API account. To do this, head to the [Geni
 Then, you may install the repository. To do this, open a terminal and run the following commands:
 
 ```bash
-git clone https://github.com/W1L7dev/Devbot.git
+git clone https://github.com/W1L7dev/devbot.git
 ```
 
 Once the repository is cloned, you'll need to install the dependencies. To do this, run one of the following commands:
@@ -71,14 +71,7 @@ pip install -r requirements.txt
 > Use `python -m`, `pip3` or similar if that is how you install your pakages
 > Generally, Windows uses `py -m` and UNIX machines `python3 -m`
 
-Then, you can open a text editor such as Visual Studio Code, Visual Studio, Sublime Text or Jetbrains IDEs, and open the file in the src\ directory called `.env`, inside of it, you'll need to paste your bot's token and your genius api key.
-
-```env
-TOKEN=your_bot_token
-GENIUS=your_genius_api_key
-```
-
-When you'll need to run the bot, make sure to run Lavalink first. To do this, open a terminal and run the following commands:
+Then, you'll need to configure the bot. To do so, open the config.cfg file and past the required informations into the placeholder text. When you'll need to run the bot, make sure to run Lavalink first. To do this, open a terminal and run the following commands:
 
 ```bash
 cd plugins/Lavalink
@@ -87,8 +80,7 @@ java -jar Lavalink.jar
 
 Before running the bot, Make sure to check if all python files have the correct path.
 
-Then, you can run the bot. To do this, open src/main.py and run it.
-Alternatively, you can run the bot from the terminal. To do this, open a terminal and run one of the following commands:
+Then, you can run the bot. To do this, open src/main.py and run it. Alternatively, you can run the bot from the terminal. To do this, open a terminal and run one of the following commands:
 
 ```bash
 cd src
@@ -205,10 +197,9 @@ Contributors in [CONTRIBUTORS.md](CONTRIBUTORS.md)
 ## Contact
 
 Discord: W1L7#9944
-
+=======
 Email: w1l7dev@gmail.com
-
-Website: https://w1l7dev.github.io/W1L7/
+Website: https://w1l7dev.github.io/
 
 ⬇️⬇️ **[DevLabs](https://discord.gg/aGbpGEDqnT)** ⬇️⬇️
 

@@ -1,6 +1,15 @@
 import json
 
 def visualize_json(data):
+    """
+    Visualize JSON data
+
+    Args:
+        data (int): The data to visualize.
+
+    Returns:
+        str: The vizualization of the data.
+    """
     def traverse_json(obj, indent=0):
         result = ""
         if isinstance(obj, dict):

@@ -4,6 +4,11 @@
 
 # Changelog
 
+## [v4.4] - 2023-20-06
+### Added
+- `installation.py` (install & config the bot with ease)
+- New config system
+
 ## [v4.3] - 2023-31-05
 ### Added
 - `/request` command (send an http request to a website)

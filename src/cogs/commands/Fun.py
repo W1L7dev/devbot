@@ -4,7 +4,7 @@ from nextcord import Interaction, SlashOption, slash_command
 from nextcord.ext import commands
 
 from tasks.morse_code import encrypt
-from tasks.zalgo import zalgo
+from tasks.Zalgo import zalgo
 
 
 class Fun(commands.Cog):

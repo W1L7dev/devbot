@@ -71,24 +71,32 @@ pip install -r requirements.txt
 > Use `python -m`, `pip3` or similar if that is how you install your pakages
 > Generally, Windows uses `py -m` and UNIX machines `python3 -m`
 
-Then, you'll need to configure the bot. To do so, open the config.cfg file and past the required informations into the placeholder text. When you'll need to run the bot, make sure to run Lavalink first. To do this, open a terminal and run the following commands:
+Then, you'll need to install Lavalink. Lavalink is a plugin that allows the bot to play music. It is bundled with the repository, so you don't need to download it. To install it, run the following commands:
 
 ```bash
 cd plugins/Lavalink
 java -jar Lavalink.jar
 ```
 
-Before running the bot, Make sure to check if all python files have the correct path.
+Each time you want to run the bot, you'll need to run the Lavalink server by doing the two exact same commands.
 
-Then, you can run the bot. To do this, open src/main.py and run it. Alternatively, you can run the bot from the terminal. To do this, open a terminal and run one of the following commands:
+Now, it's time to do the bot's configuration. To start the configuration, run the following command:
 
 ```bash
-cd src
-py main.py
+py config/installation.py
 ```
+> **Note**: As mentionned earlier, the command may be different depending on your OS.
 
-> **Note**
-> You can use `python`, `py3` or similar commands instead of `py` if it doesn't work
+Fill out the form and once done, you'll be ready to run the bot. To do so, run the following command:
+
+```bash
+py src/main.py
+```
+> **Note**: As always, the command may be different depending on your OS.
+
+> **Note**: You can add rules to the bot by going in config.cfg and adding a new line with the following format: `rules: {}`. In between those brackets, you can add rules by doing the following: `rule: description`. You can add as many rules as you want, but make sure to add a comma after each rule except the last one.
+
+**Before running the bot, Make sure to check if all python files have the correct path.**
 
 ---
 

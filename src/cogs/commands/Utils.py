@@ -11,7 +11,7 @@ from nextcord import (Color, Embed, File, Interaction, Member, Message,
 from nextcord.ext import application_checks, commands
 from nextcord.interactions import Interaction
 
-from tasks.math import solve_expr
+from tasks.Math import solve_expr
 
 
 class Utils(commands.Cog):

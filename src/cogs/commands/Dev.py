@@ -10,8 +10,8 @@ from nextcord import (Activity, ActivityType, File, Game, Interaction,
                       SlashOption, Status, slash_command)
 from nextcord.ext import application_checks, commands
 
-from tasks.clear import cls
-from tasks.restart import restart
+from tasks.Clear import cls
+from tasks.Restart import restart
 from tasks.visualize_json import visualize_json
 
 
@@ -19,7 +19,7 @@ class Dev(commands.Cog):
     """Dev commands
 
     Commands:
-        uptime: Displays the bot's uptime.
+        uptime:-
         cls: Clears the terminal output.
         print: Prints a message to the terminal.
         restart: Restarts the bot.
